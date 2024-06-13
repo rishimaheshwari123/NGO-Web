@@ -6,12 +6,11 @@ import { BASE_URL } from "../api";
 
 const Events = () => {
   const [events, setEvents] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const eventsPerPage = 12;
 
   const getAllEvents = async () => {
     try {
       const response = await axios.get(`${BASE_URL}/events/getAll`);
+
       if (response?.data?.success) {
         setEvents(response.data.events);
       }
@@ -20,29 +19,18 @@ const Events = () => {
     }
   };
 
+  const formatTime = (time) => {
+    const [hours, minutes] = time.split(":").map(Number);
+    const period = hours >= 12 ? "PM" : "AM";
+    const formattedHours = hours % 12 || 12;
+    return `${formattedHours}:${
+      minutes < 10 ? "0" + minutes : minutes
+    } ${period}`;
+  };
+
   useEffect(() => {
     getAllEvents();
   }, []);
-
-  // Convert 24-hour time to 12-hour time
-  const convertTo12HourFormat = (time) => {
-    let [hours, minutes] = time.split(":");
-    hours = parseInt(hours, 10);
-    const period = hours >= 12 ? "PM" : "AM";
-    hours = hours % 12 || 12;
-    return `${hours}:${minutes} ${period}`;
-  };
-
-  // Calculate the events to display based on the current page
-  const indexOfLastEvent = currentPage * eventsPerPage;
-  const indexOfFirstEvent = indexOfLastEvent - eventsPerPage;
-  const currentEvents = events.slice(indexOfFirstEvent, indexOfLastEvent);
-
-  // Change page
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
-  // Determine the total number of pages
-  const totalPages = Math.ceil(events.length / eventsPerPage);
 
   return (
     <>
@@ -52,7 +40,7 @@ const Events = () => {
           Check our latest upcoming events
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {currentEvents.map((event) => (
+          {events.map((event) => (
             <div
               key={event.id}
               className="bg-white shadow-lg rounded-lg overflow-hidden"
@@ -68,30 +56,13 @@ const Events = () => {
                 </h2>
                 <p className="text-gray-600 mb-4">{event.desc}</p>
                 <div className="text-gray-700 text-sm">
-                  <p className="mb-1">
-                    <strong>Time:</strong> {convertTo12HourFormat(event.time)}
-                  </p>
+                  <p className="mb-1">Time : {formatTime(event.time)}</p>
                   <p>
                     <strong>Location:</strong> {event.location}
                   </p>
                 </div>
               </div>
             </div>
-          ))}
-        </div>
-        <div className="flex justify-center mt-8">
-          {Array.from({ length: totalPages }, (_, index) => (
-            <button
-              key={index + 1}
-              onClick={() => paginate(index + 1)}
-              className={`mx-1 px-3 py-1 rounded ${
-                currentPage === index + 1
-                  ? "bg-cyan-700 text-white"
-                  : "bg-gray-300 text-gray-700"
-              }`}
-            >
-              {index + 1}
-            </button>
           ))}
         </div>
       </div>
