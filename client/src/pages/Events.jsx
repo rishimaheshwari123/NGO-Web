@@ -6,11 +6,12 @@ import { BASE_URL } from "../api";
 
 const Events = () => {
   const [events, setEvents] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const eventsPerPage = 12;
 
   const getAllEvents = async () => {
     try {
       const response = await axios.get(`${BASE_URL}/events/getAll`);
-
       if (response?.data?.success) {
         setEvents(response.data.events);
       }
@@ -23,6 +24,17 @@ const Events = () => {
     getAllEvents();
   }, []);
 
+  // Calculate the events to display based on the current page
+  const indexOfLastEvent = currentPage * eventsPerPage;
+  const indexOfFirstEvent = indexOfLastEvent - eventsPerPage;
+  const currentEvents = events.slice(indexOfFirstEvent, indexOfLastEvent);
+
+  // Change page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  // Determine the total number of pages
+  const totalPages = Math.ceil(events.length / eventsPerPage);
+
   return (
     <>
       <Navbar />
@@ -31,7 +43,7 @@ const Events = () => {
           Check our latest upcoming events
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {events.map((event) => (
+          {currentEvents.map((event) => (
             <div
               key={event.id}
               className="bg-white shadow-lg rounded-lg overflow-hidden"
@@ -56,6 +68,21 @@ const Events = () => {
                 </div>
               </div>
             </div>
+          ))}
+        </div>
+        <div className="flex justify-center mt-8">
+          {Array.from({ length: totalPages }, (_, index) => (
+            <button
+              key={index + 1}
+              onClick={() => paginate(index + 1)}
+              className={`mx-1 px-3 py-1 rounded ${
+                currentPage === index + 1
+                  ? "bg-cyan-700 text-white"
+                  : "bg-gray-300 text-gray-700"
+              }`}
+            >
+              {index + 1}
+            </button>
           ))}
         </div>
       </div>
