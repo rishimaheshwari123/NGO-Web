@@ -35,7 +35,7 @@ app.use("/api/v1/employee", require("./routes/empolyeeRoute"))
 
 
 app.use("/", (req, res) => {
-    res.send("Ha bhai chal rha hu")
+    res.send("Ha bhai chal rha hu. Uski tarha tere ko chod kar thod jaunga 😀")
 })
 const PORT = process.env.PORT || 8080;
 
