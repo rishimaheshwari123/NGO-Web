@@ -8,7 +8,6 @@ const { error } = require("ajv/dist/vocabularies/applicator/dependencies");
 
 const loginCtrl = async (req, res) => {
     try {
-        console.log(req.body)
         const { email, password } = req.body
 
         if (!email || !password) {

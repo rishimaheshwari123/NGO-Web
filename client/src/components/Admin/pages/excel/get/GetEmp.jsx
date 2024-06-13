@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { FaTrashAlt } from "react-icons/fa";
 import { BASE_URL } from "../../../../../api";
+import { toast } from "react-toastify";
 
 const GetEmp = () => {
   const [emp, setEmp] = useState([]);
@@ -18,8 +19,11 @@ const GetEmp = () => {
   };
 
   const handleDelete = async (id) => {
-    await axios.delete(`${BASE_URL}/employee/delete/${id}`);
+    const res = await axios.delete(`${BASE_URL}/employee/delete/${id}`);
     setEmp(emp.filter((currElem) => currElem._id !== id));
+    if (res?.data?.success) {
+      toast.success(res.data.message);
+    }
   };
   useEffect(() => {
     getEmpData();

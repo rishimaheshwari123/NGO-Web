@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { FaTrashAlt } from "react-icons/fa";
 import { BASE_URL } from "../../../api";
-
+import { toast } from "react-toastify";
 const GetAllEvents = () => {
   const [events, setEvents] = useState([]);
 
@@ -20,8 +20,11 @@ const GetAllEvents = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`${BASE_URL}/events/delete/${id}`);
+      const res = await axios.delete(`${BASE_URL}/events/delete/${id}`);
       setEvents(events.filter((event) => event._id !== id));
+      if (res?.data?.success) {
+        toast.success(res.data.message);
+      }
     } catch (error) {
       console.log("Error in deleting event in front end");
     }
