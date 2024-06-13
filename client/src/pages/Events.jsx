@@ -24,6 +24,15 @@ const Events = () => {
     getAllEvents();
   }, []);
 
+  // Convert 24-hour time to 12-hour time
+  const convertTo12HourFormat = (time) => {
+    let [hours, minutes] = time.split(":");
+    hours = parseInt(hours, 10);
+    const period = hours >= 12 ? "PM" : "AM";
+    hours = hours % 12 || 12;
+    return `${hours}:${minutes} ${period}`;
+  };
+
   // Calculate the events to display based on the current page
   const indexOfLastEvent = currentPage * eventsPerPage;
   const indexOfFirstEvent = indexOfLastEvent - eventsPerPage;
@@ -60,7 +69,7 @@ const Events = () => {
                 <p className="text-gray-600 mb-4">{event.desc}</p>
                 <div className="text-gray-700 text-sm">
                   <p className="mb-1">
-                    <strong>Time:</strong> {event.time}
+                    <strong>Time:</strong> {convertTo12HourFormat(event.time)}
                   </p>
                   <p>
                     <strong>Location:</strong> {event.location}
