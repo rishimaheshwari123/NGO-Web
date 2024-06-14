@@ -1,12 +1,21 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaBars, FaHome, FaTimes } from "react-icons/fa";
-import { MdAddBox, MdWidgets } from "react-icons/md";
+import { MdAddBox, MdLogout, MdWidgets } from "react-icons/md";
 import { useLocation } from "react-router-dom";
+import { setToken, setUser } from "../../../redux/authSlice";
+import { useDispatch } from "react-redux";
 
 const Navbar = () => {
+  const dispatch = useDispatch();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const location = useLocation();
+
+  const handleLogout = async () => {
+    localStorage.removeItem("token");
+    dispatch(setToken(null));
+    dispatch(setUser(null));
+  };
 
   let pageTitle;
   switch (location.pathname) {
@@ -128,6 +137,9 @@ const Navbar = () => {
             >
               Get Organization Data
             </Link>
+          </li>
+          <li className="mb-2 flex gap-4 items-center" onClick={handleLogout}>
+            <MdLogout /> Logout
           </li>
         </ul>
       </div>
