@@ -6,8 +6,21 @@ import { BASE_URL } from "../../../../../api";
 const CreateEmp = () => {
   const [formData, setFormData] = useState({
     name: "",
-    phone: "",
-    role: "",
+    fatherName: "",
+    phone1: "",
+    phone2: "",
+    blood: "",
+    sex: "",
+    dob: "",
+    address: "",
+    joinDate: "",
+    monthDateAndAmount: "",
+    sevaAshram: "",
+    help: "",
+    active: "",
+    refrenceName: "",
+    refrencePhone: "",
+    work: "",
   });
 
   const handleChange = (e) => {
@@ -20,9 +33,9 @@ const CreateEmp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formDataToSend = new FormData();
-    formDataToSend.append("name", formData.name);
-    formDataToSend.append("phone", formData.phone);
-    formDataToSend.append("role", formData.role);
+    for (const key in formData) {
+      formDataToSend.append(key, formData[key]);
+    }
 
     try {
       Swal.fire({
@@ -52,26 +65,40 @@ const CreateEmp = () => {
 
       setFormData({
         name: "",
-        phone: "",
-        role: "",
+        fatherName: "",
+        phone1: "",
+        phone2: "",
+        blood: "",
+        sex: "",
+        dob: "",
+        address: "",
+        joinDate: "",
+        monthDateAndAmount: "",
+        sevaAshram: "",
+        help: "",
+        active: "",
+        refrenceName: "",
+        refrencePhone: "",
+        work: "",
       });
       console.log(res.data);
     } catch (error) {
       console.error(error);
     }
   };
+
   return (
     <>
       <form
         onSubmit={handleSubmit}
-        className="sm:grid grid-cols-1 md:grid-cols-2 md: gap-4  md:mt-40"
+        className="sm:grid grid-cols-1 md:grid-cols-2 md:gap-4 md:mt-40"
       >
         <div className="mb-4">
           <label
             className="block text-gray-700 text-xl font-bold mb-2"
-            htmlFor="title"
+            htmlFor="name"
           >
-            Employee Name:
+            Member Name: <span className="text-red-500">*</span>
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-[50px] text-2xl"
@@ -80,37 +107,265 @@ const CreateEmp = () => {
             name="name"
             value={formData.name}
             onChange={handleChange}
+            required
           />
         </div>
         <div className="mb-4">
           <label
             className="block text-gray-700 text-xl font-bold mb-2"
-            htmlFor="time"
+            htmlFor="fatherName"
           >
-            Phone:
+            Father's Name: <span className="text-red-500">*</span>
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-[50px] text-2xl"
-            id="desc"
+            id="fatherName"
             type="text"
-            name="phone"
-            value={formData.phone}
+            name="fatherName"
+            required
+            value={formData.fatherName}
             onChange={handleChange}
           />
         </div>
         <div className="mb-4">
           <label
             className="block text-gray-700 text-xl font-bold mb-2"
-            htmlFor="time"
+            htmlFor="phone1"
           >
-            Role:
+            Phone 1: <span className="text-red-500">*</span>
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-[50px] text-2xl"
+            id="phone1"
             type="text"
-            name="role"
-            value={formData.role}
+            name="phone1"
+            required
+            value={formData.phone1}
             onChange={handleChange}
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            className="block text-gray-700 text-xl font-bold mb-2"
+            htmlFor="phone2"
+          >
+            Phone 2:
+          </label>
+          <input
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-[50px] text-2xl"
+            id="phone2"
+            type="text"
+            name="phone2"
+            value={formData.phone2}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            className="block text-gray-700 text-xl font-bold mb-2"
+            htmlFor="blood"
+          >
+            Blood Group:
+          </label>
+          <input
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-[50px] text-2xl"
+            id="blood"
+            type="text"
+            name="blood"
+            value={formData.blood}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            className="block text-gray-700 text-xl font-bold mb-2"
+            htmlFor="sex"
+          >
+            Sex: <span className="text-red-500">*</span>
+          </label>
+          <select
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-[50px] text-2xl"
+            id="sex"
+            name="sex"
+            required
+            value={formData.sex}
+            onChange={handleChange}
+          >
+            <option value="">Select</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div className="mb-4">
+          <label
+            className="block text-gray-700 text-xl font-bold mb-2"
+            htmlFor="dob"
+          >
+            Date of Birth: <span className="text-red-500">*</span>
+          </label>
+          <input
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-[50px] text-2xl"
+            id="dob"
+            type="date"
+            name="dob"
+            required
+            value={formData.dob}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            className="block text-gray-700 text-xl font-bold mb-2"
+            htmlFor="address"
+          >
+            Address: <span className="text-red-500">*</span>
+          </label>
+          <input
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-[50px] text-2xl"
+            id="address"
+            type="text"
+            required
+            name="address"
+            value={formData.address}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            className="block text-gray-700 text-xl font-bold mb-2"
+            htmlFor="joinDate"
+          >
+            Joining Date: <span className="text-red-500">*</span>
+          </label>
+          <input
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-[50px] text-2xl"
+            id="joinDate"
+            type="date"
+            name="joinDate"
+            value={formData.joinDate}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            className="block text-gray-700 text-xl font-bold mb-2"
+            htmlFor="monthDateAndAmount"
+          >
+            Month Date and Amount: <span className="text-red-500">*</span>
+          </label>
+          <input
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-[50px] text-2xl"
+            id="monthDateAndAmount"
+            type="text"
+            name="monthDateAndAmount"
+            value={formData.monthDateAndAmount}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            className="block text-gray-700 text-xl font-bold mb-2"
+            htmlFor="sevaAshram"
+          >
+            Seva Ashram: <span className="text-red-500">*</span>
+          </label>
+          <input
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-[50px] text-2xl"
+            id="sevaAshram"
+            type="text"
+            name="sevaAshram"
+            value={formData.sevaAshram}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            className="block text-gray-700 text-xl font-bold mb-2"
+            htmlFor="help"
+          >
+            Help: <span className="text-red-500">*</span>
+          </label>
+          <input
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-[50px] text-2xl"
+            id="help"
+            type="text"
+            name="help"
+            value={formData.help}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            className="block text-gray-700 text-xl font-bold mb-2"
+            htmlFor="active"
+          >
+            Active: <span className="text-red-500">*</span>
+          </label>
+          <select
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-[50px] text-2xl"
+            id="active"
+            name="active"
+            value={formData.active}
+            onChange={handleChange}
+            required
+          >
+            <option value="">Select</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </div>
+        <div className="mb-4">
+          <label
+            className="block text-gray-700 text-xl font-bold mb-2"
+            htmlFor="refrenceName"
+          >
+            Reference Name:
+          </label>
+          <input
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-[50px] text-2xl"
+            id="refrenceName"
+            type="text"
+            name="refrenceName"
+            value={formData.refrenceName}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            className="block text-gray-700 text-xl font-bold mb-2"
+            htmlFor="refrencePhone"
+          >
+            Reference Phone:
+          </label>
+          <input
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-[50px] text-2xl"
+            id="refrencePhone"
+            type="text"
+            name="refrencePhone"
+            value={formData.refrencePhone}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            className="block text-gray-700 text-xl font-bold mb-2"
+            htmlFor="work"
+          >
+            Work: <span className="text-red-500">*</span>
+          </label>
+          <input
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-[50px] text-2xl"
+            id="work"
+            type="text"
+            name="work"
+            value={formData.work}
+            onChange={handleChange}
+            required
           />
         </div>
 
@@ -119,10 +374,12 @@ const CreateEmp = () => {
             className="px-8 py-4 bg-black text-white rounded-md text-sm"
             type="submit"
           >
-            Create Employee
+            Create Member
           </button>
         </div>
       </form>
+      <br />
+      <br />
     </>
   );
 };

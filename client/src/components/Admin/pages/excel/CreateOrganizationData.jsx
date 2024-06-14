@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import CreateEmp from "./create/CreateEmp";
+import CreateOnlinePayment from "./create/CreateOnlinePayment";
+import CreateCasePayment from "./create/CreateCasePayment";
+import CreateBloodDonation from "./create/CreateBloodDonation";
+import CreateEventList from "./create/CreateEventList";
 
 const CreateOrganizationData = () => {
-  const [active, setActive] = useState("employee");
+  const [active, setActive] = useState("member");
 
   const handleTabName = (tabName) => {
     setActive(tabName);
@@ -13,43 +17,65 @@ const CreateOrganizationData = () => {
         Storing all the information{" "}
       </p>
       <div className="bg-black  overflow-x-scroll md:overflow-x-hidden ">
-        <div className="flex gap-5">
+        <div className="flex gap-5 pl-2">
           <button
             className={`${
-              active === "employee"
+              active === "member"
                 ? "bg-sky-900 text-yellow-400 px-1 py-2 font-bold text-xl"
                 : "text-white text-xl"
             }`}
-            onClick={() => handleTabName("employee")}
+            onClick={() => handleTabName("member")}
           >
-            Employee
+            MEMBER LIST
           </button>
           <button
             className={`${
-              active === "donation"
+              active === "online"
                 ? "bg-sky-900 text-yellow-400 px-1 py-2 font-bold text-xl"
                 : "text-white text-xl"
             }`}
-            onClick={() => handleTabName("donation")}
+            onClick={() => handleTabName("online")}
           >
-            Donation
+            ONLINE DONATION
           </button>
           <button
             className={`${
-              active === "people"
+              active === "cash"
                 ? "bg-sky-900 text-yellow-400 px-1 py-2 font-bold text-xl"
                 : "text-white text-xl"
             }`}
-            onClick={() => handleTabName("people")}
+            onClick={() => handleTabName("cash")}
           >
-            People
+            CASH DONATION
+          </button>
+          <button
+            className={`${
+              active === "blood"
+                ? "bg-sky-900 text-yellow-400 px-1 py-2 font-bold text-xl"
+                : "text-white text-xl"
+            }`}
+            onClick={() => handleTabName("blood")}
+          >
+            BLOOD DONATION LIST
+          </button>
+          <button
+            className={`${
+              active === "event"
+                ? "bg-sky-900 text-yellow-400 px-1 py-2 font-bold text-xl"
+                : "text-white text-xl"
+            }`}
+            onClick={() => handleTabName("event")}
+          >
+            EVENT LIST
           </button>
         </div>
       </div>
 
-      {active === "employee" && <CreateEmp />}
-      {active === "donation" && "donation"}
-      {active === "people" && "people"}
+      {active === "member" && <CreateEmp />}
+      {active === "online" && <CreateOnlinePayment />}
+      {active === "cash" && <CreateCasePayment />}
+      {active === "blood" && <CreateBloodDonation />}
+      {active === "event" && <CreateEventList />}
     </>
   );
 };

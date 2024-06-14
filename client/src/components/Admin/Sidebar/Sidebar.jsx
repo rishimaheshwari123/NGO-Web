@@ -94,7 +94,7 @@ const Sidebar = () => {
               },
               {
                 to: "/admin/getOrganizationData",
-                icon: <MdAddBox />,
+                icon: <MdWidgets />,
                 label: "Get Organization Data",
               },
             ].map((item) => (
@@ -135,7 +135,7 @@ const Sidebar = () => {
               },
               {
                 to: "/admin/getOrganizationData",
-                icon: <MdAddBox />,
+                icon: <MdWidgets />,
                 label: "Get Organization Data",
               },
             ].map((item) => (
@@ -187,9 +187,9 @@ const Sidebar = () => {
         </div>
         <button
           onClick={handleLogout}
-          className={`bg-red-600 text-white text-xl flex items-center justify-center mt-2 ${
+          className={`bg-red-600  text-white text-xl flex items-center justify-center mt-2 ${
             isCollapsed
-              ? "w-10 h-10 rounded-full"
+              ? "w-12 h-12 rounded-full"
               : "py-2 px-4 w-full rounded-lg"
           }`}
         >

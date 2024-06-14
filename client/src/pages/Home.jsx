@@ -1,5 +1,5 @@
 import React from "react";
-import Causes from "../components/Causes";
+// import Causes from "../components/Causes";
 import Slider from "../components/Slider";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -8,26 +8,26 @@ import { services } from "../data/data";
 const Home = () => {
   const slides = [
     {
-      image:
-        "https://thaagamorg-eb-s3.s3.amazonaws.com/static/main/assets/images/slider/2.jpg",
-      title: "Give Food and Milk ",
-      desc: " Providing eggs and milk to children is not just nourishing their bodies; it's feeding their dreams and giving them a brighter, healthier future..",
-      button: "Help",
+      image: "https://i.ibb.co/5k4jBfh/11.jpg",
     },
     {
-      image:
-        "https://thaagamorg-eb-s3.s3.amazonaws.com/static/main/assets/images/slider/slide-3.webp",
-      title: "Help to orphan child ",
-      button: "Help",
-      desc: "We are providing room facility to orphan child also provide the nessary food",
+      image: "https://i.ibb.co/qWCRzyv/13.jpg",
     },
     {
-      image:
-        "https://thaagamorg-eb-s3.s3.amazonaws.com/static/main/assets/images/slider/slide01.webp",
-      title: "Free aduction to needy childs",
-      button: "Help",
-      desc: "We are providing free stady to orphan child and provide the food as well",
+      image: "https://i.ibb.co/gzRRQbD/12.jpg",
     },
+    {
+      image: "https://i.ibb.co/GFmgJ95/14.jpg",
+    },
+    {
+      image: "https://i.ibb.co/55hG8ht/16.jpg",
+    },
+    // {
+    //   image: "https://i.ibb.co/0ywfBb2/15.jpg",
+    // },
+    // {
+    //   image: "https://i.ibb.co/F8vXB57/17.jpg",
+    // },
   ];
 
   return (
@@ -70,7 +70,7 @@ const Home = () => {
         </div>
       </div>
 
-      <Causes />
+      {/* <Causes /> */}
 
       <div className="max-w-7xl mx-auto px-5 my-20">
         <p className="text-cyan-500 uppercase mb-12 text-2xl font-semibold lg:text-4xl lg:font-semibold text-center">

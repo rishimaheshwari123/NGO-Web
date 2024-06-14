@@ -69,7 +69,7 @@ const Navbar = () => {
             <Link
               to="/events"
               className={` py-5 px-2 ${
-                pathMatch("/services") ? "text-red-600 font-bold" : "text-black"
+                pathMatch("/events") ? "text-red-600 font-bold" : "text-black"
               }`}
             >
               Events
@@ -135,7 +135,7 @@ const Navbar = () => {
             <Link
               to="/events"
               className={` px-2 ${
-                pathMatch("/services") ? "text-red-600 font-bold" : "text-black"
+                pathMatch("/events") ? "text-red-600 font-bold" : "text-black"
               }`}
               onClick={toggleMenu}
             >
