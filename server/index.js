@@ -32,6 +32,10 @@ cloudinaryConnect();
 app.use("/api/v1/admin", require("./routes/authRoute"))
 app.use("/api/v1/events", require("./routes/eventRoute"))
 app.use("/api/v1/employee", require("./routes/empolyeeRoute"))
+app.use("/api/v1/onlinePayment", require("./routes/onlinePaymentRoute"))
+app.use("/api/v1/casePayment", require("./routes/casePaymentRoute"))
+app.use("/api/v1/blood", require("./routes/BloodDonation"))
+app.use("/api/v1/eventList", require("./routes/eventListRoute"))
 
 
 app.use("/", (req, res) => {
@@ -41,5 +45,5 @@ const PORT = process.env.PORT || 8080;
 
 
 app.listen(PORT, () => {
-    // console.log(`Server is running on port no ${PORT}`)
+    console.log(`Server is running on port no ${PORT}`)
 })
