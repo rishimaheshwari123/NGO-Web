@@ -15,29 +15,8 @@ const createEvents = async (req, res) => {
             });
         }
 
-        // Validate and convert time to the desired format
-        const timeRegex = /^([0-1]?[0-9]|2[0-3]):([0-5][0-9])$/; // Regex to match HH:MM format
-        if (!timeRegex.test(time)) {
-            return res.status(400).json({
-                success: false,
-                message: "Invalid time format. Use HH:MM format."
-            });
-        }
 
-        let [hours, minutes] = time.split(':');
-        hours = parseInt(hours, 10);
-        let period = 'AM';
 
-        if (hours >= 12) {
-            period = 'PM';
-            if (hours > 12) {
-                hours -= 12;
-            }
-        } else if (hours === 0) {
-            hours = 12;
-        }
-
-        const formattedTime = `${hours}:${minutes} ${period}`;
 
         // upload img to cloudinary
         const thumbnailImage = await uploadImageToCloudinary(thumbnail, process.env.FOLDER_NAME);
@@ -46,7 +25,7 @@ const createEvents = async (req, res) => {
         const event = await eventModel.create({
             title,
             image: thumbnailImage.secure_url,
-            time: formattedTime,
+            time,
             location,
             desc
         });
