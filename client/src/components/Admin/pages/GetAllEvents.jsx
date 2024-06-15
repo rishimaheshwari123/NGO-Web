@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { FaTrashAlt } from "react-icons/fa";
-import { BASE_URL } from "../../../api";
+
 import { toast } from "react-toastify";
 const GetAllEvents = () => {
+  const BASE_URL = process.env.REACT_APP_BASE_URL
+
   const [events, setEvents] = useState([]);
 
   const getAllEvents = async () => {

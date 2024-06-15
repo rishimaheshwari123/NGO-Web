@@ -1,10 +1,11 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { BASE_URL } from "../../../../../api";
+
 import Swal from "sweetalert2";
 import { toast } from "react-toastify";
 
 const CreateEventList = () => {
+  const BASE_URL = process.env.REACT_APP_BASE_URL
   const [formData, setFormData] = useState({
     time: "",
     date: "",

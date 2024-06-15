@@ -6,9 +6,11 @@ import { setToken, setUser } from "../../../redux/authSlice";
 import Swal from "sweetalert2";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FaArrowLeftLong } from "react-icons/fa6";
-import { BASE_URL } from "../../../api";
+
 
 function Login() {
+  const BASE_URL = process.env.REACT_APP_BASE_URL
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
@@ -32,6 +34,7 @@ function Login() {
   };
 
   const handleOnSubmit = async (e) => {
+    console.log(BASE_URL)
     e.preventDefault();
     try {
       Swal.fire({

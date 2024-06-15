@@ -1,10 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { BASE_URL } from "../../../../../api";
+
 import { toast } from "react-toastify";
 import { FaTrashAlt } from "react-icons/fa";
 
 const GetBloodDonation = () => {
+  const BASE_URL = process.env.REACT_APP_BASE_URL
+
   const [blood, setBlood] = useState([]);
 
   const getAllBloodData = async () => {
