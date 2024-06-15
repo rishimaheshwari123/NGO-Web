@@ -1,9 +1,11 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { BASE_URL } from "../../../../../api";
+
 import Swal from "sweetalert2";
 
 const CreateBloodDonation = () => {
+  const BASE_URL = process.env.REACT_APP_BASE_URL
+
   const [formData, setFormData] = useState({
     name: "",
     fatherName: "",

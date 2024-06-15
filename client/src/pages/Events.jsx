@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import axios from "axios";
-import { BASE_URL } from "../api";
+
 
 const Events = () => {
   const [events, setEvents] = useState([]);
+  const BASE_URL = process.env.REACT_APP_BASE_URL
 
   const getAllEvents = async () => {
     try {

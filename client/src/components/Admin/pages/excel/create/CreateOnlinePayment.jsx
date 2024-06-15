@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { BASE_URL } from "../../../../../api";
+
 
 const CreateOnlinePayment = () => {
+  const BASE_URL = process.env.REACT_APP_BASE_URL
+
   const [formData, setFormData] = useState({
     reciptNumber: "",
     date: "",
