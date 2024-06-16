@@ -48,6 +48,7 @@ function Login() {
 
       const response = await axios.post(`${BASE_URL}/admin/login`, formData);
 
+      console.log(response)
       Swal.close();
 
       if (!response?.data?.success) {
@@ -75,7 +76,7 @@ function Login() {
       Swal.fire({
         title: "Error",
         text:
-          error.response.data.message ||
+          error.response?.data?.message ||
           "Something went wrong, please try again later",
         icon: "error",
       });
