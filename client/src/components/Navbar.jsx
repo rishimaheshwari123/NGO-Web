@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { Link, matchPath, useLocation } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
-
+import SearchBar from "./search/SearchBar";
 const Navbar = () => {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
@@ -31,6 +31,10 @@ const Navbar = () => {
                 />
               </div>
             </Link>
+          </div>
+
+          <div>
+            <SearchBar></SearchBar>
           </div>
 
           <div className="hidden md:flex items-center space-x-4">

@@ -4,9 +4,42 @@ import { FaFacebook } from "react-icons/fa";
 import { RiWhatsappFill } from "react-icons/ri";
 import { FaYoutube } from "react-icons/fa";
 import { useSelector } from "react-redux";
-
+import {useSearchContext} from "../redux/SearchContext"
 const Footer = () => {
   const { token } = useSelector((state) => state.auth);
+  const { searchQuery, updateSearchQuery } = useSearchContext();
+
+  const footerContent = [
+    {
+      title: "Team",
+      items: [
+        { name: "Team Pahal Bareli", link: "" },
+        { name: token ? "Admin Login" : "Admin Login", link: token ? "/admin/dashboard" : "/login" },
+      ],
+    },
+    {
+      title: "Helps",
+      items: [
+        { name: "Free Food", link: "" },
+        { name: "Provide Free Room", link: "" },
+        { name: "Provide animal health care", link: "" },
+        { name: "Vridh Ashram", link: "" },
+      ],
+    },
+    {
+      title: "Contact Us",
+      items: [
+        { name: "सूचना पर तत्काल सेवा 24x7 ,365 days", link: "#" },
+        { name: "हेल्पलाइन नंबर 9424502080 ,9174502080", link: "#" },
+      ],
+    },
+  ];
+
+  const filteredContent = footerContent.filter(section =>
+    section.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    section.items.some(item => item.name.toLowerCase().includes(searchQuery.toLowerCase()))
+  );
+
   return (
     <footer className="bg-gray-100 text-black">
       <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
@@ -23,51 +56,26 @@ const Footer = () => {
             </Link>
           </div>
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
-            <div>
-              <h2 className="mb-6 text-sm font-semibold  uppercase text-black">
-                Team
-              </h2>
-              <ul className="text-gray-500 dark:text-gray-400 font-medium">
-                <li className="mb-4">Team Pahal Bareli</li>
-                {token ? (
-                  <Link className="mb-4" to="/admin/dashboard">
-                    Admin Login
-                  </Link>
-                ) : (
-                  <Link className="mb-4" to="/login">
-                    Admin Login
-                  </Link>
-                )}
-              </ul>
-            </div>
-            <div>
-              <h2 className="mb-6 text-sm font-semibold  uppercase text-black">
-                Helps
-              </h2>
-              <ul className="text-gray-500 dark:text-gray-400 font-medium">
-                <li className="mb-4">Free Food</li>
-                <li className="mb-4">Provide Free Room</li>
-                <li className="mb-4">Provide animal health care</li>
-                <li className="mb-4">Vridh Ashram</li>
-              </ul>
-            </div>
-            <div>
-              <h2 className="mb-6 text-sm font-semibold  uppercase text-black">
-                Contact US
-              </h2>
-              <ul className="text-gray-500 dark:text-gray-400 font-medium">
-                <li className="mb-4">
-                  <Link to="#" className="hover:underline">
-                    सूचना पर तत्काल सेवा 24x7 ,365 days
-                  </Link>
-                </li>
-                <li>
-                  <Link to="#" className="hover:underline">
-                    हेल्पलाइन नंबर 9424502080 ,9174502080
-                  </Link>
-                </li>
-              </ul>
-            </div>
+            {filteredContent.map((section, index) => (
+              <div key={index}>
+                <h2 className="mb-6 text-sm font-semibold uppercase text-black">
+                  {section.title}
+                </h2>
+                <ul className="text-gray-500 dark:text-gray-400 font-medium">
+                  {section.items
+                    .filter(item =>
+                      item.name.toLowerCase().includes(searchQuery.toLowerCase())
+                    )
+                    .map((item, idx) => (
+                      <li className="mb-4" key={idx}>
+                        <Link to={item.link} className="hover:underline">
+                          {item.name}
+                        </Link>
+                      </li>
+                    ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
         <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
