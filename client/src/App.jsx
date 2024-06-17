@@ -13,6 +13,9 @@ import GetAllEvents from "./components/Admin/pages/GetAllEvents";
 import Events from "./pages/Events";
 import CreateOrganizationData from "./components/Admin/pages/excel/CreateOrganizationData";
 import GetOrganization from "./components/Admin/pages/excel/GetOrganization";
+import ScrollToTop from "./components/ScrollToTop";
+import Whatsapp from "./components/Whatsapp";
+
 const App = () => {
   return (
     <>
@@ -37,6 +40,8 @@ const App = () => {
             <Route path="getOrganizationData" element={<GetOrganization />} />
           </Route>
         </Routes>
+        <Whatsapp />
+        <ScrollToTop />
       </div>
     </>
   );

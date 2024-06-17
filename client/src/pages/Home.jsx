@@ -37,7 +37,6 @@ const Home = () => {
         <Slider slides={slides} />
       </div>
       <br />
-
       <div className=" grid gap-16 lg:gap-16 lg:grid-cols-2 max-w-7xl mx-auto px-5 mt-10 lg:my-20">
         <img
           src="https://i.ibb.co/tDYtm7Q/Whats-App-Image-2024-06-10-at-10-57-34-6754bbb9.jpg"
@@ -70,8 +69,12 @@ const Home = () => {
         </div>
       </div>
 
+      <div class="marquee-container">
+        <div class="marquee">
+          सूचना पर तत्काल सेवा हेल्पलाइन नंबर 9424502080
+        </div>
+      </div>
       {/* <Causes /> */}
-
       <div className="max-w-7xl mx-auto px-5 my-20">
         <p className="text-cyan-500 uppercase mb-12 text-2xl font-semibold lg:text-4xl lg:font-semibold text-center">
           our culture
