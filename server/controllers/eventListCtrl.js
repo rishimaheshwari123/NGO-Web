@@ -1,6 +1,6 @@
 const eventListModel = require("../model/eventList");
 const ExcelJS = require('exceljs');
-const moment = require('moment');
+
 
 
 const createEventListCtrl = async (req, res) => {
