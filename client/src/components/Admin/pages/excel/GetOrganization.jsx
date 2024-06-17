@@ -66,7 +66,7 @@ const GetOrganization = () => {
             }`}
             onClick={() => handleTabName("event")}
           >
-            EVENT LIST
+            BIRTHDAY
           </button>
         </div>
       </div>

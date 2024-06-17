@@ -95,6 +95,13 @@ const Navbar = () => {
             isOpen ? "translate-x-0" : "-translate-x-full"
           } transition-transform duration-300 ease-in-out md:hidden z-50`}
         >
+          <div className=" w-[70px] h-[70px] lg:w-16 lg:h-16 flex m-auto mt-3 mb-8 ">
+            <img
+              src="https://i.ibb.co/W0v3fWm/Team-LOGO-page-0001.jpg"
+              alt=""
+              className=" object-cover "
+            />
+          </div>
           <div className="flex flex-col p-4 space-y-4">
             <Link
               to="/"
@@ -105,6 +112,7 @@ const Navbar = () => {
             >
               Home
             </Link>
+            <div className="border-b-2 border-b-black"></div>
             <Link
               to="/about"
               className={`px-2 ${
@@ -114,6 +122,8 @@ const Navbar = () => {
             >
               About
             </Link>
+            <div className="border-b-2 border-b-black"></div>
+
             <Link
               to="/gallery"
               className={`  px-2 ${
@@ -123,6 +133,8 @@ const Navbar = () => {
             >
               Gallery
             </Link>
+            <div className="border-b-2 border-b-black"></div>
+
             <Link
               to="/services"
               className={` px-2 ${
@@ -132,6 +144,8 @@ const Navbar = () => {
             >
               Services
             </Link>
+            <div className="border-b-2 border-b-black"></div>
+
             <Link
               to="/events"
               className={` px-2 ${
@@ -141,6 +155,8 @@ const Navbar = () => {
             >
               Events
             </Link>
+            <div className="border-b-2 border-b-black"></div>
+
             <Link
               to="/contact"
               className={`  px-2 ${
@@ -150,6 +166,7 @@ const Navbar = () => {
             >
               Contact
             </Link>
+            <div className="border-b-2 border-b-black"></div>
           </div>
         </div>
         {/* Overlay */}

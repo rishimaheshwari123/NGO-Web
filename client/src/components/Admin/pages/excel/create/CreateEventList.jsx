@@ -5,19 +5,20 @@ import Swal from "sweetalert2";
 import { toast } from "react-toastify";
 
 const CreateEventList = () => {
-  const BASE_URL = process.env.REACT_APP_BASE_URL
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
   const [formData, setFormData] = useState({
-    time: "",
     date: "",
+    year: "",
     bhojan: "",
     phone: "",
     other: "",
   });
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [name]: value.toUpperCase(),
     });
   };
 
@@ -47,8 +48,8 @@ const CreateEventList = () => {
           icon: "success",
         });
         setFormData({
-          time: "",
           date: "",
+          year: "",
           bhojan: "",
           phone: "",
           other: "",
@@ -68,14 +69,14 @@ const CreateEventList = () => {
           className="block text-gray-700 text-xl font-bold mb-2"
           htmlFor="name"
         >
-          Time : <span className="text-red-500">*</span>
+          Date : <span className="text-red-500">*</span>
         </label>
         <input
-          type="time"
+          type="date"
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-[50px] text-2xl"
-          name="time"
-          id="time"
-          value={formData.time}
+          name="date"
+          id="date"
+          value={formData.date}
           onChange={handleChange}
           required
         />
@@ -85,14 +86,14 @@ const CreateEventList = () => {
           className="block text-gray-700 text-xl font-bold mb-2"
           htmlFor="name"
         >
-          Date : <span className="text-red-500">*</span>
+          Year : <span className="text-red-500">*</span>
         </label>
         <input
-          type="date"
+          type="text"
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-[50px] text-2xl"
-          name="date"
-          id="date"
-          value={formData.date}
+          name="year"
+          id="year"
+          value={formData.year}
           onChange={handleChange}
           required
         />

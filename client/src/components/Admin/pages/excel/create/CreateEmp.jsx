@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 
-
 const CreateEmp = () => {
-  const BASE_URL = process.env.REACT_APP_BASE_URL
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
 
   const [formData, setFormData] = useState({
     name: "",
@@ -26,9 +25,10 @@ const CreateEmp = () => {
   });
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [name]: value.toUpperCase(),
     });
   };
 

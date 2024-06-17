@@ -6,8 +6,7 @@ import { FaTrashAlt } from "react-icons/fa";
 
 const GetEventList = () => {
   const [eventList, setEventList] = useState([]);
-  const BASE_URL = process.env.REACT_APP_BASE_URL
-
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
 
   const getAllEventListdData = async () => {
     try {
@@ -84,10 +83,10 @@ const GetEventList = () => {
           <thead className="bg-gray-50">
             <tr>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Time
+                Date
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Date
+                Year
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Bhojan Prasadi
@@ -98,6 +97,9 @@ const GetEventList = () => {
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Other
               </th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Action
+              </th>
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
@@ -105,10 +107,10 @@ const GetEventList = () => {
               eventList.map((currElem, index) => (
                 <tr key={index}>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-gray-900">{currElem.time}</div>
+                    <div className="text-sm text-gray-900">{currElem.date}</div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-gray-900">{currElem.date}</div>
+                    <div className="text-sm text-gray-900">{currElem.year}</div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="text-sm text-gray-900">

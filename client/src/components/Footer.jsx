@@ -53,17 +53,17 @@ const Footer = () => {
             </div>
             <div>
               <h2 className="mb-6 text-sm font-semibold  uppercase text-black">
-                Legal
+                Contact US
               </h2>
               <ul className="text-gray-500 dark:text-gray-400 font-medium">
                 <li className="mb-4">
                   <Link to="#" className="hover:underline">
-                    Privacy Policy
+                    सूचना पर तत्काल सेवा 24x7 ,365 days
                   </Link>
                 </li>
                 <li>
                   <Link to="#" className="hover:underline">
-                    Terms &amp; Conditions
+                    हेल्पलाइन नंबर 9424502080 ,9174502080
                   </Link>
                 </li>
               </ul>
@@ -79,22 +79,13 @@ const Footer = () => {
             </Link>
           </span>
           <div className="flex mt-4 sm:justify-center sm:mt-0 gap-3">
-            <Link
-              to=""
-              className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
-            >
+            <Link to="" className="text-gray-500 hover:text-yellow-600">
               <FaFacebook size={22} />
             </Link>
-            <Link
-              to=""
-              className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
-            >
+            <Link to="" className="text-gray-500 hover:text-yellow-600">
               <RiWhatsappFill size={22} />
             </Link>
-            <Link
-              to=""
-              className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
-            >
+            <Link to="" className="text-gray-500 hover:text-yellow-600">
               <FaYoutube size={22} />
             </Link>
           </div>

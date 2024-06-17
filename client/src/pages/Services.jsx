@@ -27,6 +27,11 @@ const Services = () => {
     <>
       <Navbar />
       <div className="pt-28 ">
+        <div class="marquee-container">
+          <div class="marquee">
+            सूचना पर तत्काल सेवा हेल्पलाइन नंबर 9424502080
+          </div>
+        </div>
         <Slider slides={slides} />
 
         <div className="h-10 bg-cyan-500 text-white font-bold flex items-center mt-20 text-2xl overflow-hidden">

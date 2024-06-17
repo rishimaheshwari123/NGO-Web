@@ -66,7 +66,7 @@ const CreateOrganizationData = () => {
             }`}
             onClick={() => handleTabName("event")}
           >
-            EVENT LIST
+            BIRTHDAY
           </button>
         </div>
       </div>

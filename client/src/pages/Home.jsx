@@ -34,6 +34,11 @@ const Home = () => {
     <>
       <Navbar />
       <div className="pt-[100px] w-screen">
+        <div class="marquee-container">
+          <div class="marquee">
+            सूचना पर तत्काल सेवा हेल्पलाइन नंबर 9424502080
+          </div>
+        </div>
         <Slider slides={slides} />
       </div>
       <br />
@@ -69,11 +74,6 @@ const Home = () => {
         </div>
       </div>
 
-      <div class="marquee-container">
-        <div class="marquee">
-          सूचना पर तत्काल सेवा हेल्पलाइन नंबर 9424502080
-        </div>
-      </div>
       {/* <Causes /> */}
       <div className="max-w-7xl mx-auto px-5 my-20">
         <p className="text-cyan-500 uppercase mb-12 text-2xl font-semibold lg:text-4xl lg:font-semibold text-center">

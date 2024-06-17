@@ -5,6 +5,7 @@ function Whatsapp() {
   return (
     <div className="whatsapp">
       <a
+        rel="noreferrer"
         href="https://wa.me/919424502080"
         target="_blank"
         className="flex items-center gap-2"

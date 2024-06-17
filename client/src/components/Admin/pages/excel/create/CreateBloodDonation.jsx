@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Swal from "sweetalert2";
 
 const CreateBloodDonation = () => {
-  const BASE_URL = process.env.REACT_APP_BASE_URL
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
 
   const [formData, setFormData] = useState({
     name: "",
@@ -17,9 +17,10 @@ const CreateBloodDonation = () => {
   });
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [name]: value.toUpperCase(),
     });
   };
 

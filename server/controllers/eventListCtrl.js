@@ -6,8 +6,9 @@ const ExcelJS = require('exceljs');
 const createEventListCtrl = async (req, res) => {
     try {
         let {
-            time,
+
             date,
+            year,
             bhojan,
             phone,
             other
@@ -16,8 +17,8 @@ const createEventListCtrl = async (req, res) => {
 
         // validation
         if (
-            !time ||
             !date ||
+            !year ||
             !bhojan ||
             !phone ||
             !other
@@ -30,8 +31,8 @@ const createEventListCtrl = async (req, res) => {
 
 
         const eventLists = await eventListModel.create({
-            time,
             date,
+            year,
             bhojan,
             phone,
             other
@@ -102,8 +103,8 @@ const exportToExcel = async (req, res) => {
         const worksheet = workbook.addWorksheet('EventList');
 
         worksheet.columns = [
-            { header: 'Time', key: 'time', width: 20 },
             { header: 'Date', key: 'date', width: 20 },
+            { header: 'Year', key: 'year', width: 20 },
             { header: 'Bhojan', key: 'bhojan', width: 20 },
             { header: 'Phone', key: 'phone', width: 15 },
             { header: 'Other', key: 'other', width: 10 },
@@ -112,8 +113,8 @@ const exportToExcel = async (req, res) => {
 
         eventLists.forEach(event => {
             worksheet.addRow({
-                time: event.time,
                 date: event.date,
+                year: event.year,
                 bhojan: event.bhojan,
                 phone: event.phone,
                 other: event.other,
