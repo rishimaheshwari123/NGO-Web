@@ -10,6 +10,7 @@ import { FaInstagram } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa6";
 import { RiTwitterXFill } from "react-icons/ri";
 
+import SearchBar from "./search/SearchBar";
 const Navbar = () => {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
@@ -68,6 +69,10 @@ const Navbar = () => {
                 />
               </div>
             </Link>
+          </div>
+
+          <div>
+            <SearchBar></SearchBar>
           </div>
 
           <div className="hidden md:flex items-center space-x-4">
