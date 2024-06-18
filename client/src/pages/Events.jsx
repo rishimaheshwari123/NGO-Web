@@ -36,11 +36,6 @@ const Events = () => {
     <>
       <Navbar />
       <div className="pt-28 ">
-        <div class="marquee-container">
-          <div class="marquee">
-            सूचना पर तत्काल सेवा हेल्पलाइन नंबर 9424502080
-          </div>
-        </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-center font-semibold text-3xl text-cyan-700 mb-12">
             Check our latest upcoming events

@@ -4,6 +4,7 @@ import { mission } from "../data/data";
 import Slider from "../components/Slider";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+
 const slides = [
   {
     image: "https://i.ibb.co/5k4jBfh/11.jpg",
@@ -16,16 +17,22 @@ const slides = [
   },
 ];
 
+const info = [
+  { img: "https://i.ibb.co/qLSTTr0/a1.png" },
+  { img: "https://i.ibb.co/2ZBhqpr/a22.png" },
+  { img: "https://i.ibb.co/YWFWcCc/a3.png" },
+  { img: "https://i.ibb.co/H4D64d8/a4.png" },
+  { img: "https://i.ibb.co/rcV6RjN/a5.png" },
+  { img: "https://i.ibb.co/QcRBjyW/a6.png" },
+  { img: "https://i.ibb.co/zQFfHny/a7.png" },
+  { img: "https://i.ibb.co/KVp1R2t/a8.png" },
+];
+
 const About = () => {
   return (
     <>
       <Navbar />
       <div className="pt-28 ">
-        <div class="marquee-container">
-          <div class="marquee">
-            सूचना पर तत्काल सेवा हेल्पलाइन नंबर 9424502080
-          </div>
-        </div>
         <div className="max-w-7xl mx-auto px-3">
           <Info />
 
@@ -36,7 +43,27 @@ const About = () => {
 
             <Slider slides={slides} />
           </div>
+
           <br />
+
+          <div className="my-16">
+            <p className="text-center text-3xl font-bold uppercase mb-10">
+              Some Information you should know about us
+            </p>
+            <div className="grid lg:grid-cols-4 gap-10 bg-transparent">
+              {info.map((currElem, index) => (
+                <div className="hover:scale-95">
+                  <img
+                    src={currElem.img}
+                    alt="not found"
+                    className="bg-transparent rounded-md"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+          <br />
+
           <div className="grid gap-10 lg:grid-cols-2 my-20">
             <img
               src="https://vakilsearch.com/blog/wp-content/uploads/2021/05/VS_Blog-Images_3-05.png"

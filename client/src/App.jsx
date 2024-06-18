@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -15,11 +15,25 @@ import CreateOrganizationData from "./components/Admin/pages/excel/CreateOrganiz
 import GetOrganization from "./components/Admin/pages/excel/GetOrganization";
 import ScrollToTop from "./components/ScrollToTop";
 import Whatsapp from "./components/Whatsapp";
+import Popup from "./components/Popup";
+import Donet from "./pages/Donet";
+import Highlight from "./pages/HighLight";
 
 const App = () => {
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
+
+  useEffect(() => {
+    setIsPopupVisible(true);
+  }, []);
+
+  const handleClosePopup = () => {
+    setIsPopupVisible(false);
+  };
   return (
     <>
       <div>
+        <Popup isVisible={isPopupVisible} onClose={handleClosePopup} />
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -28,6 +42,8 @@ const App = () => {
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/login" element={<Login />} />
           <Route path="/events" element={<Events />} />
+          <Route path="/donate" element={<Donet />} />
+          <Route path="/highlight" element={<Highlight />} />
 
           <Route path="/admin" element={<Admin />}>
             <Route path="dashboard" element={<Dashboard />} />

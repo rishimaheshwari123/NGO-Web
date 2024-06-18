@@ -2,6 +2,13 @@
 import React, { useState } from "react";
 import { Link, matchPath, useLocation } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { FaLocationDot } from "react-icons/fa6";
+import { FaPhoneAlt } from "react-icons/fa";
+import { FaRegClock } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { FaYoutube } from "react-icons/fa6";
+import { RiTwitterXFill } from "react-icons/ri";
 
 const Navbar = () => {
   const location = useLocation();
@@ -16,7 +23,37 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="bg-white text-black fixed w-full z-10 text-sm">
+      <div className=" flex flex-col sm:flex-row justify-between items-center px-5 py-4 bg-pink-600">
+        <div className=" flex flex-col sm:flex-row gap-4 sm:gap-6 text-sm text-white">
+          <div className="flex gap-2 items-center">
+            <FaLocationDot size={20} color="orange" />
+            Team Pahal Marg, Bareli, Madhya Pradesh 464668
+          </div>
+          <div className="flex gap-2 items-center">
+            <FaPhoneAlt size={20} color="orange" />
+            9424502080
+          </div>
+          <div className="flex gap-2 items-center">
+            <FaRegClock size={20} color="orange" />
+            24x7, 365 days
+          </div>
+        </div>
+        <div className=" flex gap-3 mt-4 sm:mt-0 text-white">
+          <Link to="https://www.facebook.com/teampahal.bareli1">
+            <FaFacebook size={25} />
+          </Link>
+          <Link to="https://www.instagram.com/team_pahal_bareli">
+            <FaInstagram size={25} />
+          </Link>
+          <Link to="https://www.youtube.com/watch?v=fxdFW3w3UZA">
+            <FaYoutube size={25} />
+          </Link>
+          <Link to="https://x.com/TeamPahal">
+            <RiTwitterXFill size={25} />
+          </Link>
+        </div>
+      </div>
+      <nav className="bg-white text-black  w-full z-10 text-sm">
         <div className="max-w-6xl mx-auto px-4 flex justify-between items-center">
           <div>
             <Link
@@ -81,6 +118,24 @@ const Navbar = () => {
               }`}
             >
               Contact
+            </Link>
+            <Link
+              to="/highlight"
+              className={` py-5 px-2 ${
+                pathMatch("/highlight")
+                  ? "text-red-600 font-bold"
+                  : "text-black"
+              }`}
+            >
+              HighLight
+            </Link>
+            <Link
+              to="/donate"
+              className={`bg-gray-300 rounded-lg py-2 px-6 ${
+                pathMatch("/donate") ? "text-red-600 font-bold" : "text-black"
+              }`}
+            >
+              Donate
             </Link>
           </div>
           <div className="md:hidden flex items-center">
@@ -165,6 +220,30 @@ const Navbar = () => {
               onClick={toggleMenu}
             >
               Contact
+            </Link>
+            <div className="border-b-2 border-b-black"></div>
+
+            <Link
+              to="/highlight"
+              className={`  px-2 ${
+                pathMatch("/highlight")
+                  ? "text-red-600 font-bold"
+                  : "text-black"
+              }`}
+              onClick={toggleMenu}
+            >
+              HighLight
+            </Link>
+            <div className="border-b-2 border-b-black"></div>
+
+            <Link
+              to="/donate"
+              className={` bg-gray-300 px-4 py-2 w-fit ${
+                pathMatch("/donate") ? "text-red-600 font-bold" : "text-black"
+              }`}
+              onClick={toggleMenu}
+            >
+              Donate
             </Link>
             <div className="border-b-2 border-b-black"></div>
           </div>

@@ -8,11 +8,6 @@ const Gallery = () => {
     <>
       <Navbar />
       <div className="pt-28">
-        <div class="marquee-container">
-          <div class="marquee">
-            सूचना पर तत्काल सेवा हेल्पलाइन नंबर 9424502080
-          </div>
-        </div>
         <div className="max-w-7xl mx-auto px-5 mb-10">
           <div className="max-w-7xl mx-auto px-5 my-20">
             <p className="text-cyan-500 uppercase mb-12 text-2xl font-semibold lg:text-4xl lg:font-semibold text-center">

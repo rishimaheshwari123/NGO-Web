@@ -9,11 +9,6 @@ const Contact = () => {
     <>
       <Navbar />
       <div className=" pt-28">
-        <div class="marquee-container">
-          <div class="marquee">
-            सूचना पर तत्काल सेवा हेल्पलाइन नंबर 9424502080
-          </div>
-        </div>
         <iframe
           title="Team pahal bareli"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d645878.2622198893!2d77.50863546773822!3d23.19726510213207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397e8b0000000001%3A0x9c121f33183644b9!2sTeam%20Pahal%20Bareli!5e0!3m2!1sen!2sin!4v1718018540903!5m2!1sen!2sin"

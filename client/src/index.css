@@ -59,6 +59,7 @@
   align-items: center;
   justify-content: center;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  animation: bounce 2s ease infinite; /* Animation property */
 }
 
 .whatsapp a {
@@ -66,8 +67,22 @@
   text-decoration: none;
 }
 
+/* Keyframes for the bounce animation */
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
 .whatsapp a:hover {
   color: #128c7e;
+}
+.whatsapp:hover {
+  background-color: white;
 }
 
 .marquee-container {

@@ -11,6 +11,10 @@ const Home = () => {
       image: "https://i.ibb.co/5k4jBfh/11.jpg",
     },
     {
+      image:
+        "https://i.ibb.co/yhcBJvy/Whats-App-Image-2024-06-17-at-12-15-45-297373d4.jpg",
+    },
+    {
       image: "https://i.ibb.co/qWCRzyv/13.jpg",
     },
     {
@@ -34,15 +38,37 @@ const Home = () => {
     <>
       <Navbar />
       <div className="pt-[100px] w-screen">
-        <div class="marquee-container">
-          <div class="marquee">
-            सूचना पर तत्काल सेवा हेल्पलाइन नंबर 9424502080
-          </div>
-        </div>
         <Slider slides={slides} />
       </div>
       <br />
-      <div className=" grid gap-16 lg:gap-16 lg:grid-cols-2 max-w-7xl mx-auto px-5 mt-10 lg:my-20">
+
+      <div className="grid">
+        <p className="text-2xl uppercase text-center my-10 font-semibold lg:text-4xl lg:font-semibold">
+          Know more about{" "}
+          <span className="text-cyan-500">Team Pahal Bareli</span>
+        </p>{" "}
+        <div className="grid lg:grid-cols-2 gap-5 max-w-7xl mx-auto ">
+          <iframe
+            className="w-full h-full sm:w-80 md:w-96 lg:w-[560px] lg:h-[315px]"
+            src="https://www.youtube.com/embed/S1lzof62iLo?si=YavVz2acCHRHkAzJ"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+          <iframe
+            className="w-full h-full sm:w-80 md:w-96 lg:w-[560px] lg:h-[315px]"
+            src="https://www.youtube.com/embed/fxdFW3w3UZA?si=9NunQb2JkStNg51D"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+      <div className=" grid  gap-16 lg:gap-16 lg:grid-cols-2 max-w-7xl mx-auto px-8 mt-10 lg:my-20 ">
         <img
           src="https://i.ibb.co/tDYtm7Q/Whats-App-Image-2024-06-10-at-10-57-34-6754bbb9.jpg"
           alt="not found"

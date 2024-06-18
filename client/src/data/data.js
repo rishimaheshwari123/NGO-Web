@@ -146,7 +146,7 @@ export const services = [
     {
         id: 3,
         img: s3,
-        title: "वृद्धाश्रम"
+        title: "Old Age Home"
     },
     {
         id: 4,
