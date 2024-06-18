@@ -1,39 +1,49 @@
-import React from "react";
-// import Causes from "../components/Causes";
+import React, { useEffect, useState } from "react";
 import Slider from "../components/Slider";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { services } from "../data/data";
+import { Link } from "react-router-dom";
+import axios from "axios";
+const slides = [
+  {
+    image: "https://i.ibb.co/5k4jBfh/11.jpg",
+  },
+  {
+    image:
+      "https://i.ibb.co/yhcBJvy/Whats-App-Image-2024-06-17-at-12-15-45-297373d4.jpg",
+  },
+  {
+    image: "https://i.ibb.co/qWCRzyv/13.jpg",
+  },
+  {
+    image: "https://i.ibb.co/gzRRQbD/12.jpg",
+  },
+  {
+    image: "https://i.ibb.co/GFmgJ95/14.jpg",
+  },
+  {
+    image: "https://i.ibb.co/55hG8ht/16.jpg",
+  },
+];
 
 const Home = () => {
-  const slides = [
-    {
-      image: "https://i.ibb.co/5k4jBfh/11.jpg",
-    },
-    {
-      image:
-        "https://i.ibb.co/yhcBJvy/Whats-App-Image-2024-06-17-at-12-15-45-297373d4.jpg",
-    },
-    {
-      image: "https://i.ibb.co/qWCRzyv/13.jpg",
-    },
-    {
-      image: "https://i.ibb.co/gzRRQbD/12.jpg",
-    },
-    {
-      image: "https://i.ibb.co/GFmgJ95/14.jpg",
-    },
-    {
-      image: "https://i.ibb.co/55hG8ht/16.jpg",
-    },
-    // {
-    //   image: "https://i.ibb.co/0ywfBb2/15.jpg",
-    // },
-    // {
-    //   image: "https://i.ibb.co/F8vXB57/17.jpg",
-    // },
-  ];
+  const [cultures, setCultures] = useState([]);
 
+  const getCultureData = async () => {
+    try {
+      const response = await axios.get(
+        `${process.env.REACT_APP_BASE_URL}/culture/getAll`
+      );
+      if (response?.data?.success) {
+        setCultures(response.data.cultures);
+      }
+    } catch (error) {
+      console.log("Could not fetch case payments from frontend", error);
+    }
+  };
+  useEffect(() => {
+    getCultureData();
+  }, []);
   return (
     <>
       <Navbar />
@@ -106,21 +116,29 @@ const Home = () => {
           our culture
         </p>
         <div className="grid gap-10 lg:grid-cols-3 md:grid-cols-2 ">
-          {services.map((currElem) => (
-            <div
-              className="card p-4 border shadow-xl shadow-yellow-500 "
-              key={currElem.id}
-            >
-              <img
-                src={currElem.img}
-                alt="not found"
-                className="rounded-lg hover:opacity-75"
-              />
-              <p className="text-center text-2xl lg:text-3xl font-semibold mt-5">
-                {currElem.title}
-              </p>
-            </div>
-          ))}
+          {cultures.length > 0 ? (
+            cultures.map((currElem) => (
+              <Link to={`/product?id=${currElem._id}`}>
+                <div
+                  className="card p-4 border shadow-xl shadow-yellow-500 "
+                  key={currElem.id}
+                >
+                  <img
+                    src={currElem.image}
+                    alt="not found"
+                    className="rounded-lg hover:opacity-75"
+                  />
+                  <p className="text-center text-2xl lg:text-3xl font-semibold mt-5">
+                    {currElem.title}
+                  </p>
+                </div>
+              </Link>
+            ))
+          ) : (
+            <>
+              <p className="flex m-auto">No culture found</p>
+            </>
+          )}
         </div>
       </div>
       <Footer />

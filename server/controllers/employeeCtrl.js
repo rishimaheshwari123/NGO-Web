@@ -80,7 +80,7 @@ const createEmployee = async (req, res) => {
 const getEmployee = async (req, res) => {
     try {
         const employees = await employeeModel.find({});
-        console.log(employees)
+        // console.log(employees)
         return res.status(200).json({
             totalEmployee: employees.length,
             success: true,

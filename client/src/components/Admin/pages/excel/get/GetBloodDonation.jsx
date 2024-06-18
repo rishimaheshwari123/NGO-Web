@@ -1,14 +1,15 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-
 import { toast } from "react-toastify";
 import { FaTrashAlt } from "react-icons/fa";
 
 const GetBloodDonation = () => {
-  const BASE_URL = process.env.REACT_APP_BASE_URL
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
 
   const [blood, setBlood] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
+  // Function to fetch blood donation data
   const getAllBloodData = async () => {
     try {
       const response = await axios.get(`${BASE_URL}/blood/getAll`);
@@ -16,43 +17,43 @@ const GetBloodDonation = () => {
         setBlood(response?.data?.bloods);
       }
     } catch (error) {
-      console.log("error in getting blood donation from frontend");
+      console.log("Error in getting blood donations from frontend:", error);
     }
   };
 
+  // Effect hook to fetch data on component mount
   useEffect(() => {
     getAllBloodData();
   }, []);
 
+  // Function to handle blood donation deletion
   const handleDelete = async (id) => {
     try {
       const res = await axios.delete(`${BASE_URL}/blood/delete/${id}`);
-      setBlood(blood.filter((currElem) => currElem._id !== id));
       if (res?.data?.success) {
+        setBlood(blood.filter((currElem) => currElem._id !== id));
         toast.success("Blood donation deleted successfully!");
       }
     } catch (error) {
-      toast.error("Opps! something went wrong. From delting blood in frontend");
+      console.error("Error deleting blood donation:", error);
+      toast.error("Failed to delete blood donation");
     }
   };
 
+  // Function to download Excel file
   const downloadExcel = async () => {
     try {
       const response = await axios.get(`${BASE_URL}/blood/download`);
-
-      console.log("Response:", response);
-
       if (response.status !== 200) {
         throw new Error("Failed to download Excel file");
       }
 
       const blob = await response.blob();
-
       const url = window.URL.createObjectURL(blob);
 
       const a = document.createElement("a");
       a.href = url;
-      a.download = "onlinepayment.xlsx";
+      a.download = "blood_donations.xlsx";
       document.body.appendChild(a);
       a.click();
 
@@ -61,22 +62,54 @@ const GetBloodDonation = () => {
 
       console.log("Excel file downloaded successfully");
     } catch (err) {
-      console.error("Error:", err);
+      console.error("Error downloading Excel file:", err);
       toast.error("Failed to download Excel file");
     }
   };
 
+  // Function to handle search input change
+  const handleSearch = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  // Function to filter blood donations based on search term
+  const filterBlood = (bloods, searchTerm) => {
+    return bloods.filter((blood) =>
+      Object.values(blood).some(
+        (value) =>
+          typeof value === "string" &&
+          value.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+    );
+  };
+
+  // Filter blood donations based on search term
+  const filteredBlood = filterBlood(blood, searchTerm);
+
   return (
     <div className="container mx-auto px-4 py-8">
-      <div className="flex justify-between items-center">
-        <p className="text-2xl font-semibold mb-4">All Donated Blood </p>
-        <a
-          href={`${BASE_URL}/blood/download`}
-          className="lg:text-xl text-sm font-bold bg-gray-300 text-black rounded-md text-center px-2 py-1 hover:text-yellow-500 hover:bg-black hover:transition-all hover:duration-500  transition-all duration-500"
-        >
-          Download Excel
-        </a>
+      <div className="grid gap-2 lg:flex lg:justify-between lg:items-center">
+        <p className="text-2xl font-semibold mb-4">All Donated Blood</p>
+        <div className="flex justify-between items-center gap-5">
+          <div className="">
+            <input
+              type="text"
+              placeholder="Search"
+              value={searchTerm}
+              onChange={handleSearch}
+              className="border border-gray-300 rounded-md px-3 py-2 w-full"
+            />
+          </div>
+          <a
+            href={`${BASE_URL}/blood/download`}
+            onClick={downloadExcel}
+            className="lg:text-xl text-sm font-bold bg-gray-300 text-black rounded-md text-center px-2 py-1 hover:text-yellow-500 hover:bg-black hover:transition-all hover:duration-500 transition-all duration-500"
+          >
+            Download Excel
+          </a>
+        </div>
       </div>
+
       <div className="overflow-x-auto">
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="bg-gray-50">
@@ -108,8 +141,8 @@ const GetBloodDonation = () => {
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
-            {blood.length > 0 ? (
-              blood.map((currElem, index) => (
+            {filteredBlood.length > 0 ? (
+              filteredBlood.map((currElem, index) => (
                 <tr key={index}>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="text-sm text-gray-900">{currElem.name}</div>
@@ -142,7 +175,6 @@ const GetBloodDonation = () => {
                       {currElem.dateOfVanue}
                     </div>
                   </td>
-
                   <td className="px-6 py-4 whitespace-nowrap">
                     <button
                       onClick={() => handleDelete(currElem._id)}
@@ -155,9 +187,9 @@ const GetBloodDonation = () => {
               ))
             ) : (
               <tr>
-                <td className="px-6 py-4 whitespace-nowrap" colSpan="17">
+                <td className="px-6 py-4 whitespace-nowrap" colSpan="8">
                   <p className="text-sm text-gray-500">
-                    No Case payment available
+                    No blood donations found
                   </p>
                 </td>
               </tr>

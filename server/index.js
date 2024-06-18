@@ -36,6 +36,7 @@ app.use("/api/v1/onlinePayment", require("./routes/onlinePaymentRoute"))
 app.use("/api/v1/casePayment", require("./routes/casePaymentRoute"))
 app.use("/api/v1/blood", require("./routes/BloodDonation"))
 app.use("/api/v1/eventList", require("./routes/eventListRoute"))
+app.use("/api/v1/culture", require("./routes/clutureRoute"))
 
 
 app.use("/", (req, res) => {

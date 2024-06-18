@@ -28,6 +28,9 @@ const Navbar = () => {
     case "/admin/getEvents":
       pageTitle = "Admin / Get Event";
       break;
+    case "/admin/createCulture":
+      pageTitle = "Admin / Create Culture";
+      break;
     default:
       pageTitle = "Home";
   }
@@ -116,6 +119,26 @@ const Navbar = () => {
               className="text-xl mt-[3px]"
             >
               Get Events
+            </Link>
+          </li>
+          <li className="mb-2 flex gap-4 items-center">
+            <MdWidgets size={22} />
+            <Link
+              to="/admin/createCulture"
+              onClick={closeSidebar}
+              className="text-xl mt-[3px]"
+            >
+              Create Culture
+            </Link>
+          </li>
+          <li className="mb-2 flex gap-4 items-center">
+            <MdWidgets size={22} />
+            <Link
+              to="/admin/getCulture"
+              onClick={closeSidebar}
+              className="text-xl mt-[3px]"
+            >
+              Get Culture
             </Link>
           </li>
           <li className="mb-2 flex gap-4 items-center">

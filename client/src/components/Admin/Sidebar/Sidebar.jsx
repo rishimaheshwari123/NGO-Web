@@ -88,6 +88,16 @@ const Sidebar = () => {
                 label: "Get Events",
               },
               {
+                to: "/admin/createCulture",
+                icon: <MdWidgets />,
+                label: "Create Culture",
+              },
+              {
+                to: "/admin/getCulture",
+                icon: <MdWidgets />,
+                label: "Get Culture",
+              },
+              {
                 to: "/admin/createOrganizationData",
                 icon: <MdAddBox />,
                 label: "Create Organization Data",
@@ -127,6 +137,16 @@ const Sidebar = () => {
                 to: "/admin/getEvents",
                 icon: <MdWidgets />,
                 label: "Get Events",
+              },
+              {
+                to: "/admin/createCulture",
+                icon: <MdWidgets />,
+                label: "Create Culture",
+              },
+              {
+                to: "/admin/getCulture",
+                icon: <MdWidgets />,
+                label: "Get Culture",
               },
               {
                 to: "/admin/createOrganizationData",

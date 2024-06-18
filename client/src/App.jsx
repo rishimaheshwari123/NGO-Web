@@ -18,9 +18,14 @@ import Whatsapp from "./components/Whatsapp";
 import Popup from "./components/Popup";
 import Donet from "./pages/Donet";
 import Highlight from "./pages/HighLight";
+import { useSelector } from "react-redux";
+import Product from "./pages/Product";
+import CreateCulture from "./components/Admin/pages/CreateCulture";
+import GetAllCulture from "./components/Admin/pages/GetAllCulture";
 
 const App = () => {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
+  const { token } = useSelector((state) => state.auth);
 
   useEffect(() => {
     setIsPopupVisible(true);
@@ -44,11 +49,14 @@ const App = () => {
           <Route path="/events" element={<Events />} />
           <Route path="/donate" element={<Donet />} />
           <Route path="/highlight" element={<Highlight />} />
+          <Route path="/product" element={<Product />} />
 
           <Route path="/admin" element={<Admin />}>
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="addEvent" element={<CreateEvent />} />
             <Route path="getEvents" element={<GetAllEvents />} />
+            <Route path="createCulture" element={<CreateCulture />} />
+            <Route path="getCulture" element={<GetAllCulture />} />
             <Route
               path="createOrganizationData"
               element={<CreateOrganizationData />}
@@ -56,7 +64,7 @@ const App = () => {
             <Route path="getOrganizationData" element={<GetOrganization />} />
           </Route>
         </Routes>
-        <Whatsapp />
+        {!token && <Whatsapp />}
         <ScrollToTop />
       </div>
     </>

@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { FaTrashAlt } from "react-icons/fa";
-
 import { toast } from "react-toastify";
 
 const GetEmp = () => {
-  const BASE_URL = process.env.REACT_APP_BASE_URL
-
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
   const [emp, setEmp] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
+  // Function to fetch employee data
   const getEmpData = async () => {
     try {
       const response = await axios.get(`${BASE_URL}/employee/getAll`);
@@ -16,30 +16,33 @@ const GetEmp = () => {
         setEmp(response.data.employees);
       }
     } catch (error) {
-      console.log("Could not fetch emp from frontend");
+      console.log("Could not fetch employees from backend", error);
     }
   };
 
+  // Function to handle employee deletion
   const handleDelete = async (id) => {
-    const res = await axios.delete(`${BASE_URL}/employee/delete/${id}`);
-    setEmp(emp.filter((currElem) => currElem._id !== id));
-    if (res?.data?.success) {
-      toast.success(res.data.message);
+    try {
+      const res = await axios.delete(`${BASE_URL}/employee/delete/${id}`);
+      if (res?.data?.success) {
+        setEmp(emp.filter((currElem) => currElem._id !== id));
+        toast.success(res.data.message);
+      }
+    } catch (error) {
+      console.error("Error deleting employee:", error);
+      toast.error("Failed to delete employee");
     }
   };
 
+  // Function to download Excel file
   const downloadExcel = async () => {
     try {
       const response = await axios.get(`${BASE_URL}/employee/download`);
-
-      console.log("Response:", response);
-
       if (response.status !== 200) {
         throw new Error("Failed to download Excel file");
       }
 
       const blob = await response.blob();
-
       const url = window.URL.createObjectURL(blob);
 
       const a = document.createElement("a");
@@ -53,26 +56,59 @@ const GetEmp = () => {
 
       console.log("Excel file downloaded successfully");
     } catch (err) {
-      console.error("Error:", err);
+      console.error("Error downloading Excel file:", err);
       toast.error("Failed to download Excel file");
     }
   };
 
+  // Function to handle search input change
+  const handleSearch = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  // Effect hook to fetch data on component mount
   useEffect(() => {
     getEmpData();
   }, []);
 
+  // Function to filter employees based on search term
+  const filterEmployees = (employees, searchTerm) => {
+    return employees.filter((employee) =>
+      Object.values(employee).some(
+        (value) =>
+          typeof value === "string" &&
+          value.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+    );
+  };
+
+  // Filter employees based on search term
+  const filteredEmp = filterEmployees(emp, searchTerm);
+
   return (
     <div className="container mx-auto px-4 py-8">
-      <div className="flex justify-between items-center">
-        <p className="text-2xl font-semibold mb-4">Member List </p>
-        <a
-          href={`${BASE_URL}/employee/download`}
-          className="lg:text-xl text-sm font-bold bg-gray-300 text-black rounded-md text-center px-2 py-1 hover:text-yellow-500 hover:bg-black hover:transition-all hover:duration-500  transition-all duration-500"
-        >
-          Download Excel
-        </a>
+      <div className="grid gap-2 lg:flex lg:justify-between lg:items-center">
+        <p className="text-2xl font-semibold mb-4">Member List</p>
+        <div className="flex justify-between items-center gap-5">
+          <div className="">
+            <input
+              type="text"
+              placeholder="Search"
+              value={searchTerm}
+              onChange={handleSearch}
+              className="border border-gray-300 rounded-md px-3 py-2 w-full"
+            />
+          </div>
+          <a
+            href={`${BASE_URL}/employee/download`}
+            onClick={downloadExcel}
+            className="lg:text-xl text-sm font-bold bg-gray-300 text-black rounded-md text-center px-2 py-1 hover:text-yellow-500 hover:bg-black hover:transition-all hover:duration-500 transition-all duration-500"
+          >
+            Download Excel
+          </a>
+        </div>
       </div>
+
       <div className="overflow-x-auto">
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="bg-gray-50">
@@ -131,8 +167,8 @@ const GetEmp = () => {
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
-            {emp.length > 0 ? (
-              emp.map((employee, index) => (
+            {filteredEmp.length > 0 ? (
+              filteredEmp.map((employee, index) => (
                 <tr key={index}>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="text-sm text-gray-900">{employee.name}</div>
@@ -217,9 +253,7 @@ const GetEmp = () => {
             ) : (
               <tr>
                 <td className="px-6 py-4 whitespace-nowrap" colSpan="17">
-                  <p className="text-sm text-gray-500">
-                    No employees available
-                  </p>
+                  <p className="text-sm text-gray-500">No employees found</p>
                 </td>
               </tr>
             )}
