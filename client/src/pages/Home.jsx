@@ -1,15 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 // import Causes from "../components/Causes";
 import Slider from "../components/Slider";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { services } from "../data/data";
-import SearchBar from "../components/search/SearchBar";
-import { useSearchContext } from "../redux/SearchContext";
 
 const Home = () => {
-  const { searchQuery, updateSearchQuery } = useSearchContext();
-
   const slides = [
     {
       image: "https://i.ibb.co/5k4jBfh/11.jpg",
@@ -38,33 +34,10 @@ const Home = () => {
     // },
   ];
 
-  const homeData = [
-    "We are driven by a singular mission: to extend a helping hand to those in need, fostering a community of care and compassion. Our initiatives encompass a wide range of services aimed at addressing various aspects of societal welfare.",
-    "From providing free tiffin services to ensuring no one goes hungry, to supporting Wardha Ashram as a sanctuary for many seeking refuge, our commitment knows no bounds.",
-    "Additionally, we organize food distribution drives, reaching out to the homeless and destitute with essential supplies. Moreover, our compassion extends to animals through our dedicated animal care initiatives, ensuring even the voiceless receive the love and care they deserve.",
-    "At Team Pahal Bareli Foundation, we firmly believe in the power of collective effort and community support. Together, we strive to create a world where everyone has access to basic necessities and the opportunity to lead dignified lives. Join us in our mission to make a meaningful difference in the lives of those less fortunate."
-  ];
-
-  const filteredHomeData = homeData.filter(paragraph =>
-    paragraph.toLowerCase().includes(searchQuery.toLowerCase())
-  );
-
-  const filteredServices = services.filter((service) =>
-    service.title.toLowerCase().includes(searchQuery.toLowerCase())
-  );
-
   return (
     <>
       <Navbar />
       <div className="pt-[100px] w-screen">
-<<<<<<< HEAD
-=======
-        <div className="marquee-container">
-          <div className="marquee">
-            सूचना पर तत्काल सेवा हेल्पलाइन नंबर 9424502080
-          </div>
-        </div>
->>>>>>> c9d6dce739a3e5a69603d543d9734fb62209a840
         <Slider slides={slides} />
       </div>
       <br />
@@ -106,23 +79,34 @@ const Home = () => {
             <span className="text-cyan-500">Team Pahal Bareli</span> Foundation
             for helping poor people
           </p>
-
-          {filteredHomeData.map((paragraph, index) => (
-<p key={index} className="text-[16px] mt-2 leading-relaxed">
-{paragraph}
-</p>
-))}
-          
+          <p className="text-[16px] mt-2 leading-relaxed">
+            We are driven by a singular mission: to extend a helping hand to
+            those in need, fostering a community of care and compassion. Our
+            initiatives encompass a wide range of services aimed at addressing
+            various aspects of societal welfare. From providing free tiffin
+            services to ensuring no one goes hungry, to supporting Wardha Ashram
+            as a sanctuary for many seeking refuge, our commitment knows no
+            bounds. Additionally, we organize food distribution drives, reaching
+            out to the homeless and destitute with essential supplies. Moreover,
+            our compassion extends to animals through our dedicated animal care
+            initiatives, ensuring even the voiceless receive the love and care
+            they deserve. At Team Pahal Bareli Foundation, we firmly believe in
+            the power of collective effort and community support. Together, we
+            strive to create a world where everyone has access to basic
+            necessities and the opportunity to lead dignified lives. Join us in
+            our mission to make a meaningful difference in the lives of those
+            less fortunate
+          </p>
         </div>
       </div>
 
+      {/* <Causes /> */}
       <div className="max-w-7xl mx-auto px-5 my-20">
-       
         <p className="text-cyan-500 uppercase mb-12 text-2xl font-semibold lg:text-4xl lg:font-semibold text-center">
           our culture
         </p>
         <div className="grid gap-10 lg:grid-cols-3 md:grid-cols-2 ">
-          {filteredServices.map((currElem) => (
+          {services.map((currElem) => (
             <div
               className="card p-4 border shadow-xl shadow-yellow-500 "
               key={currElem.id}
@@ -139,7 +123,7 @@ const Home = () => {
           ))}
         </div>
       </div>
-      <Footer  />
+      <Footer />
     </>
   );
 };
