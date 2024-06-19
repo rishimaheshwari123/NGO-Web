@@ -78,12 +78,14 @@ const Home = () => {
           ></iframe>
         </div>
       </div>
-      <div className=" grid  gap-16 lg:gap-16 lg:grid-cols-2 max-w-7xl mx-auto px-8 mt-10 lg:my-20 ">
-        <img
-          src="https://i.ibb.co/tDYtm7Q/Whats-App-Image-2024-06-10-at-10-57-34-6754bbb9.jpg"
-          alt="not found"
-          className="rounded-lg shadow-2xl shadow-red-500 h-[60vh] object-cover -rotate-6"
-        />
+      <div className="grid gap-16 lg:gap-16 lg:grid-cols-2 max-w-7xl mx-auto px-8 mt-10 lg:my-20">
+        <div className="w-[80vw] lg:h-[100vh] lg:w-full">
+          <img
+            src="https://i.ibb.co/tDYtm7Q/Whats-App-Image-2024-06-10-at-10-57-34-6754bbb9.jpg"
+            alt="not found"
+            className="rounded-lg shadow-2xl shadow-red-500 object-cover lg:h-[65vh]  lg:-rotate-6"
+          />
+        </div>
         <div>
           <p className="text-2xl font-semibold lg:text-4xl lg:font-semibold">
             <span className="text-cyan-500">Team Pahal Bareli</span> Foundation
@@ -105,7 +107,7 @@ const Home = () => {
             strive to create a world where everyone has access to basic
             necessities and the opportunity to lead dignified lives. Join us in
             our mission to make a meaningful difference in the lives of those
-            less fortunate
+            less fortunate.
           </p>
         </div>
       </div>
