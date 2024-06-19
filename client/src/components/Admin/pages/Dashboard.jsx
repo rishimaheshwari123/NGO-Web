@@ -13,9 +13,9 @@ const Dashboard = () => {
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:grid-cols-3 mt-5 ">
-        {dashboardCard.map((currElem) => (
+        {dashboardCard.map((currElem, index) => (
           <div className="hover:scale-95">
-            <div className=" relative  -z-10" key={currElem.id}>
+            <div className=" relative  -z-10" key={index}>
               <img
                 src={currElem.img}
                 alt="not found"

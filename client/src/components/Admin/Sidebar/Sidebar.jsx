@@ -3,10 +3,16 @@ import { NavLink } from "react-router-dom";
 import { CiMenuFries } from "react-icons/ci";
 import { RxCross1 } from "react-icons/rx";
 import { AiOutlineUser } from "react-icons/ai";
-import { MdAddBox, MdWidgets, MdLogout } from "react-icons/md";
+import { MdLogout } from "react-icons/md";
 import { FaHome } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { setToken, setUser } from "../../../redux/authSlice";
+import { MdEmojiEvents } from "react-icons/md";
+import { MdOutlineFestival } from "react-icons/md";
+import { FcLandscape } from "react-icons/fc";
+import { FcCameraIdentification } from "react-icons/fc";
+import { FcOrganization } from "react-icons/fc";
+import { FcOrgUnit } from "react-icons/fc";
 
 const Sidebar = () => {
   const [isCollapsed, setIsCollapsed] = useState(
@@ -81,37 +87,41 @@ const Sidebar = () => {
           <>
             {[
               { to: "/admin/dashboard", icon: <FaHome />, label: "Dashboard" },
-              { to: "/admin/addEvent", icon: <MdAddBox />, label: "Add Event" },
+              {
+                to: "/admin/addEvent",
+                icon: <MdEmojiEvents />,
+                label: "Add Event",
+              },
               {
                 to: "/admin/getEvents",
-                icon: <MdWidgets />,
+                icon: <MdOutlineFestival />,
                 label: "Get Events",
               },
               {
                 to: "/admin/createCulture",
-                icon: <MdWidgets />,
+                icon: <FcLandscape />,
                 label: "Create Culture",
               },
               {
                 to: "/admin/getCulture",
-                icon: <MdWidgets />,
+                icon: <FcCameraIdentification />,
                 label: "Get Culture",
               },
               {
                 to: "/admin/createOrganizationData",
-                icon: <MdAddBox />,
+                icon: <FcOrganization />,
                 label: "Create Organization Data",
               },
               {
                 to: "/admin/getOrganizationData",
-                icon: <MdWidgets />,
+                icon: <FcOrgUnit />,
                 label: "Get Organization Data",
               },
             ].map((item) => (
               <NavLink
                 key={item.to}
                 to={item.to}
-                exact={true}
+                // exact={true}
                 // onClick={handleToggle}
                 className={({ isActive }) =>
                   `text-white py-4 flex items-center hover:border-r-4 hover:border-white ${
@@ -132,37 +142,41 @@ const Sidebar = () => {
           <>
             {[
               { to: "/admin/dashboard", icon: <FaHome />, label: "Dashboard" },
-              { to: "/admin/addEvent", icon: <MdAddBox />, label: "Add Event" },
+              {
+                to: "/admin/addEvent",
+                icon: <MdEmojiEvents />,
+                label: "Add Event",
+              },
               {
                 to: "/admin/getEvents",
-                icon: <MdWidgets />,
+                icon: <MdOutlineFestival />,
                 label: "Get Events",
               },
               {
                 to: "/admin/createCulture",
-                icon: <MdWidgets />,
+                icon: <FcLandscape />,
                 label: "Create Culture",
               },
               {
                 to: "/admin/getCulture",
-                icon: <MdWidgets />,
+                icon: <FcCameraIdentification />,
                 label: "Get Culture",
               },
               {
                 to: "/admin/createOrganizationData",
-                icon: <MdAddBox />,
+                icon: <FcOrganization />,
                 label: "Create Organization Data",
               },
               {
                 to: "/admin/getOrganizationData",
-                icon: <MdWidgets />,
+                icon: <FcOrgUnit />,
                 label: "Get Organization Data",
               },
             ].map((item) => (
               <NavLink
                 key={item.to}
                 to={item.to}
-                exact={true}
+                // exact={true}
                 onClick={handleToggle}
                 className={({ isActive }) =>
                   `text-white py-4 flex items-center hover:border-r-4 hover:border-white ${

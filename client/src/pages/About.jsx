@@ -52,7 +52,7 @@ const About = () => {
             </p>
             <div className="grid lg:grid-cols-4 gap-10 bg-transparent">
               {info.map((currElem, index) => (
-                <div className="hover:scale-95">
+                <div className="hover:scale-95" key={index}>
                   <img
                     src={currElem.img}
                     alt="not found"

@@ -10,8 +10,10 @@ import { RiTwitterXFill } from "react-icons/ri";
 import { MdEmail } from "react-icons/md";
 import { FaLocationDot } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Footer = () => {
+  const { token } = useSelector((state) => state.auth);
   return (
     <footer className="bg-purple-900">
       <div className="grid ml-10 lg:grid-cols-3 lg:max-w-7xl lg:mx-auto gap-6  ">
@@ -28,17 +30,26 @@ const Footer = () => {
             Team Pahal Bareli Foundation for helping poor people
           </p>
           <div className=" flex gap-3 mt-4 sm:mt-0">
-            <Link to="https://www.facebook.com/teampahal.bareli1">
-              <FaFacebook size={25} />
+            <Link
+              to="https://www.facebook.com/teampahal.bareli1"
+              target="_blank"
+            >
+              <FaFacebook size={25} className="hover:text-yellow-400" />
             </Link>
-            <Link to="https://www.instagram.com/team_pahal_bareli">
-              <FaInstagram size={25} />
+            <Link
+              to="https://www.instagram.com/team_pahal_bareli"
+              target="_blank"
+            >
+              <FaInstagram size={25} className="hover:text-yellow-400" />
             </Link>
-            <Link to="https://www.youtube.com/watch?v=fxdFW3w3UZA">
-              <FaYoutube size={25} />
+            <Link
+              to="https://www.youtube.com/watch?v=fxdFW3w3UZA"
+              target="_blank"
+            >
+              <FaYoutube size={25} className="hover:text-yellow-400" />
             </Link>
-            <Link to="https://x.com/TeamPahal">
-              <RiTwitterXFill size={25} />
+            <Link to="https://x.com/TeamPahal" target="_blank">
+              <RiTwitterXFill size={25} className="hover:text-yellow-400" />
             </Link>
           </div>
         </div>
@@ -71,7 +82,10 @@ const Footer = () => {
           <Link to="/contact" className="lg:-mt-10">
             Contact
           </Link>
-          <Link to="/login" className="lg:-mt-10">
+          <Link
+            to={token ? "/admin/dashboard" : "/login"}
+            className="lg:-mt-10"
+          >
             Admin Login
           </Link>
         </div>

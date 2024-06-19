@@ -2,13 +2,13 @@
 import React, { useState } from "react";
 import { Link, matchPath, useLocation } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
-import { FaLocationDot } from "react-icons/fa6";
 import { FaPhoneAlt } from "react-icons/fa";
 import { FaRegClock } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa6";
 import { RiTwitterXFill } from "react-icons/ri";
+import { MdEmail } from "react-icons/md";
 
 const Navbar = () => {
   const location = useLocation();
@@ -26,12 +26,12 @@ const Navbar = () => {
       <div className=" flex flex-col sm:flex-row justify-between items-center px-5 py-4 bg-pink-600">
         <div className=" flex flex-col sm:flex-row gap-4 sm:gap-6 text-sm text-white">
           <div className="flex gap-2 items-center">
-            <FaLocationDot size={20} color="orange" />
-            Team Pahal Marg, Bareli, Madhya Pradesh 464668
+            <MdEmail size={20} color="orange" />
+            teampahal.bareli@gmail.com
           </div>
           <div className="flex gap-2 items-center">
             <FaPhoneAlt size={20} color="orange" />
-            9424502080
+            9424502080, 9174502080
           </div>
           <div className="flex gap-2 items-center">
             <FaRegClock size={20} color="orange" />
@@ -39,17 +39,23 @@ const Navbar = () => {
           </div>
         </div>
         <div className=" flex gap-3 mt-4 sm:mt-0 text-white">
-          <Link to="https://www.facebook.com/teampahal.bareli1">
-            <FaFacebook size={25} />
+          <Link to="https://www.facebook.com/teampahal.bareli1" target="_blank">
+            <FaFacebook size={25} className="hover:text-yellow-400" />
           </Link>
-          <Link to="https://www.instagram.com/team_pahal_bareli">
-            <FaInstagram size={25} />
+          <Link
+            to="https://www.instagram.com/team_pahal_bareli"
+            target="_blank"
+          >
+            <FaInstagram size={25} className="hover:text-yellow-400" />
           </Link>
-          <Link to="https://www.youtube.com/watch?v=fxdFW3w3UZA">
-            <FaYoutube size={25} />
+          <Link
+            to="https://www.youtube.com/watch?v=fxdFW3w3UZA"
+            target="_blank"
+          >
+            <FaYoutube size={25} className="hover:text-yellow-400" />
           </Link>
-          <Link to="https://x.com/TeamPahal">
-            <RiTwitterXFill size={25} />
+          <Link to="https://x.com/TeamPahal" target="_blank">
+            <RiTwitterXFill size={25} className="hover:text-yellow-400" />
           </Link>
         </div>
       </div>

@@ -62,19 +62,19 @@ const Home = () => {
             className="w-full h-full sm:w-80 md:w-96 lg:w-[560px] lg:h-[315px]"
             src="https://www.youtube.com/embed/S1lzof62iLo?si=YavVz2acCHRHkAzJ"
             title="YouTube video player"
-            frameborder="0"
+            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
           ></iframe>
           <iframe
             className="w-full h-full sm:w-80 md:w-96 lg:w-[560px] lg:h-[315px]"
             src="https://www.youtube.com/embed/fxdFW3w3UZA?si=9NunQb2JkStNg51D"
             title="YouTube video player"
-            frameborder="0"
+            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
           ></iframe>
         </div>
       </div>
@@ -117,8 +117,8 @@ const Home = () => {
         </p>
         <div className="grid gap-10 lg:grid-cols-3 md:grid-cols-2 ">
           {cultures.length > 0 ? (
-            cultures.map((currElem) => (
-              <Link to={`/product?id=${currElem._id}`}>
+            cultures.map((currElem, index) => (
+              <Link to={`/product?id=${currElem._id}`} key={index}>
                 <div
                   className="card p-4 border shadow-xl shadow-yellow-500 "
                   key={currElem.id}
