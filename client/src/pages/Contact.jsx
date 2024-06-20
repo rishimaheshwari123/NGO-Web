@@ -26,7 +26,7 @@ const Contact = () => {
               </span>
               <span className="text-sm">
                 {" "}
-                Team Pahal Marg, Bareli, Madhya Pradesh 464668
+                Team Pahal Marg, Jain Mohalla, Bareli District Raisen MP 464668{" "}
               </span>
             </div>
             <div className="flex items-center gap-4">
