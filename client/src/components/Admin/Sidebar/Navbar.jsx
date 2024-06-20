@@ -93,6 +93,12 @@ const Navbar = () => {
         <ul className="text-sm flex flex-col gap-4">
           <li className="mb-2 flex gap-4 items-center">
             <FaHome size={22} />
+            <Link to="/" onClick={closeSidebar} className="text-xl mt-[3px]">
+              Back To Home
+            </Link>
+          </li>
+          <li className="mb-2 flex gap-4 items-center">
+            <FaHome size={22} />
             <Link
               to="/admin/dashboard"
               onClick={closeSidebar}
@@ -121,7 +127,7 @@ const Navbar = () => {
               Get Events
             </Link>
           </li>
-          <li className="mb-2 flex gap-4 items-center">
+          {/* <li className="mb-2 flex gap-4 items-center">
             <MdWidgets size={22} />
             <Link
               to="/admin/createCulture"
@@ -130,8 +136,8 @@ const Navbar = () => {
             >
               Create Culture
             </Link>
-          </li>
-          <li className="mb-2 flex gap-4 items-center">
+          </li> */}
+          {/* <li className="mb-2 flex gap-4 items-center">
             <MdWidgets size={22} />
             <Link
               to="/admin/getCulture"
@@ -140,7 +146,7 @@ const Navbar = () => {
             >
               Get Culture
             </Link>
-          </li>
+          </li> */}
           <li className="mb-2 flex gap-4 items-center">
             <MdAddBox size={22} />
             <Link
@@ -162,7 +168,7 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="mb-2 flex gap-4 items-center" onClick={handleLogout}>
-            <MdLogout /> Logout
+            <MdLogout size={22} /> Logout
           </li>
         </ul>
       </div>

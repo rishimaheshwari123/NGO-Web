@@ -1,85 +1,81 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { useSelector } from "react-redux";
+import GetCulture from "../components/GetCulture";
+import CreateCulture from "../components/CreateCulture";
+import GetAllCultureAdmin from "../components/Admin/pages/GetAllCultureAdmin";
 
 const useQuery = () => {
   return new URLSearchParams(useLocation().search);
 };
 
 const Product = () => {
-  const [culture, setCulture] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [tabActive, setTabActive] = useState("view");
+  const { token } = useSelector((state) => state.auth);
   const query = useQuery();
   const id = query.get("id");
 
-  const getCultureData = async () => {
-    try {
-      const response = await axios.get(
-        `${process.env.REACT_APP_BASE_URL}/culture/get/${id}`
-      );
-      if (response?.data?.success) {
-        setCulture(response.data.culture);
-      } else {
-        setError(response.data.message);
-      }
-    } catch (error) {
-      setError("Could not fetch culture data");
-      console.error("Could not fetch culture data from frontend", error);
-    } finally {
-      setLoading(false);
-    }
+  const handleTabChange = (tab) => {
+    setTabActive(tab);
   };
-
-  useEffect(() => {
-    if (id) {
-      getCultureData();
-    }
-  }, [id]);
-
-  if (loading) {
-    return <p className="text-center mt-4">Loading...</p>;
-  }
-
-  if (error) {
-    return <p className="text-center mt-4 text-red-500">{error}</p>;
-  }
 
   return (
     <>
       <Navbar />
-      <div className="container mx-auto p-4 my-12">
-        {culture ? (
-          <div className="flex flex-col items-center border rounded-lg shadow-lg overflow-hidden bg-white">
-            <div className="w-full flex flex-col lg:flex-row gap-4">
-              <img
-                src={culture.image}
-                alt={culture.title}
-                className="w-full lg:w-1/2 object-cover"
-              />
-              {culture.image2 && (
-                <img
-                  src={culture.image2}
-                  alt={culture.title}
-                  className="w-full lg:w-1/2 object-cover"
-                />
-              )}
-            </div>
-            <div className="w-full p-6 mt-4">
-              <h2 className="text-3xl font-bold mb-4 text-center lg:text-left">
-                {culture.title}
-              </h2>
-              <p className="text-lg text-gray-700 text-center lg:text-left">
-                {culture.desc}
-              </p>
-            </div>
-          </div>
-        ) : (
-          <p className="text-center mt-4">No culture found</p>
-        )}
+
+      <div className=" max-w-7xl mx-auto ">
+        <div className="flex  justify-center gap-3 bg-gray-500 w-fit m-auto py-1 rounded-md px-3">
+          <button
+            onClick={() => handleTabChange("view")}
+            className={` font-bold text-xl ${
+              tabActive === "view"
+                ? "bg-pink-600 rounded-md px-4 py-2 text-white transition ease-in duration-500 "
+                : " bg-gray-500 text-black px-4 py-2 rounded-md  transition ease-in duration-500"
+            }`}
+          >
+            View More
+          </button>
+          {token && (
+            <button
+              onClick={() => handleTabChange("more")}
+              className={` font-bold text-xl ${
+                tabActive === "more"
+                  ? "bg-pink-600 rounded-md px-4 py-2 text-white transition ease-in duration-500 "
+                  : " bg-gray-500 text-black px-4 py-2 rounded-md  transition ease-in duration-500"
+              }`}
+            >
+              Add Culture More Details
+            </button>
+          )}
+          {token && (
+            <button
+              onClick={() => handleTabChange("all")}
+              className={` font-bold text-xl ${
+                tabActive === "all"
+                  ? "bg-pink-600 rounded-md px-4 py-2 text-white transition ease-in duration-500 "
+                  : " bg-gray-500 text-black px-4 py-2 rounded-md  transition ease-in duration-500"
+              }`}
+            >
+              Get All
+            </button>
+          )}
+        </div>
+
+        <br />
+        <br />
+
+        {tabActive === "view" && <GetCulture categoryId={id} />}
+        {tabActive === "more" && <CreateCulture id={id} />}
+        {tabActive === "all" && <GetAllCultureAdmin />}
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
       </div>
+
       <Footer />
     </>
   );

@@ -4,14 +4,15 @@ import React, { useState } from "react";
 import Swal from "sweetalert2";
 import { toast } from "react-toastify";
 
-const CreateEventList = () => {
+const CreateExpense = () => {
   const BASE_URL = process.env.REACT_APP_BASE_URL;
   const [formData, setFormData] = useState({
     date: "",
-    year: "",
+    reason: "",
+    amount: "",
+    refrence: "",
     name: "",
-    bhojan: "",
-    phone: "",
+    payment: "",
     other: "",
   });
 
@@ -33,32 +34,30 @@ const CreateEventList = () => {
         allowEscapeKey: false,
         allowEnterKey: false,
         showConfirmButton: false,
-        html: '<div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div>',
       });
-      const response = await axios.post(
-        `${BASE_URL}/eventList/create`,
-        formData
-      );
+      const response = await axios.post(`${BASE_URL}/expense/create`, formData);
 
       Swal.close();
 
       if (response?.data?.success) {
         Swal.fire({
-          title: `Event List is created successfully! `,
+          title: `Expense  created successfully! `,
           text: `Have a nice day!`,
           icon: "success",
         });
         setFormData({
           date: "",
-          year: "",
+          reason: "",
+          amount: "",
+          refrence: "",
           name: "",
-          bhojan: "",
-          phone: "",
+          payment: "",
           other: "",
         });
       }
     } catch (error) {
       toast.error("Opps something went wrong!");
+      console.log(error);
     }
   };
   return (
@@ -88,14 +87,48 @@ const CreateEventList = () => {
           className="block text-gray-700 text-xl font-bold mb-2"
           htmlFor="name"
         >
-          Year : <span className="text-red-500">*</span>
+          Reason : <span className="text-red-500">*</span>
         </label>
         <input
           type="text"
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-[50px] text-2xl"
-          name="year"
-          id="year"
-          value={formData.year}
+          name="reason"
+          id="reason"
+          value={formData.reason}
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <div className="mb-4">
+        <label
+          className="block text-gray-700 text-xl font-bold mb-2"
+          htmlFor="name"
+        >
+          Amount : <span className="text-red-500">*</span>
+        </label>
+        <input
+          type="text"
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-[50px] text-2xl"
+          name="amount"
+          id="amount"
+          value={formData.amount}
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <div className="mb-4">
+        <label
+          className="block text-gray-700 text-xl font-bold mb-2"
+          htmlFor="name"
+        >
+          Refrence: <span className="text-red-500">*</span>
+        </label>
+        <input
+          type="text"
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-[50px] text-2xl"
+          name="refrence"
+          id="refrence"
+          value={formData.refrence}
           onChange={handleChange}
           required
         />
@@ -112,7 +145,7 @@ const CreateEventList = () => {
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-[50px] text-2xl"
           name="name"
           id="name"
-          value={formData.Name}
+          value={formData.name}
           onChange={handleChange}
           required
         />
@@ -120,36 +153,22 @@ const CreateEventList = () => {
       <div className="mb-4">
         <label
           className="block text-gray-700 text-xl font-bold mb-2"
-          htmlFor="name"
+          htmlFor="active"
         >
-          Bhojan Prasadi : <span className="text-red-500">*</span>
+          Payment Mode: <span className="text-red-500">*</span>
         </label>
-        <input
-          type="text"
+        <select
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-[50px] text-2xl"
-          name="bhojan"
-          id="bhojan"
-          value={formData.bhojan}
+          id="payment"
+          name="payment"
+          value={formData.payment}
           onChange={handleChange}
           required
-        />
-      </div>
-      <div className="mb-4">
-        <label
-          className="block text-gray-700 text-xl font-bold mb-2"
-          htmlFor="name"
         >
-          Phone : <span className="text-red-500">*</span>
-        </label>
-        <input
-          type="text"
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-[50px] text-2xl"
-          name="phone"
-          id="phone"
-          value={formData.phone}
-          onChange={handleChange}
-          required
-        />
+          <option value="">Select</option>
+          <option value="ONLINE">Online</option>
+          <option value="CASE">Case</option>
+        </select>
       </div>
 
       <div className="mb-4">
@@ -182,4 +201,4 @@ const CreateEventList = () => {
   );
 };
 
-export default CreateEventList;
+export default CreateExpense;

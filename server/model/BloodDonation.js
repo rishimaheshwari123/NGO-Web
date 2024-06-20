@@ -27,7 +27,11 @@ const bloodDonationSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    dateOfVanue: {
+    date: {
+        type: String,
+        required: true
+    },
+    vanue: {
         type: String,
         required: true
     },

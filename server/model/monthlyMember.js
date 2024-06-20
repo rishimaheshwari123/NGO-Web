@@ -1,71 +1,86 @@
 const mongoose = require("mongoose");
 
-const employeeSchema = new mongoose.Schema({
+const monthlyMemberSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
     },
-    fatherName: {
+
+    phone: {
         type: String,
         required: true
     },
 
-    phone1: {
-        type: String,
-        required: true
-    },
-    phone2: {
-        type: String,
-    },
-    blood: {
-        type: String,
-    },
-    sex: {
-        type: String,
-    },
-    dob: {
-        type: String,
-        required: true
-    },
     address: {
         type: String,
         required: true
     },
-    joinDate: {
-        type: String,
-        required: true
-    },
-    month: {
-        type: String,
-        // required: true
-    },
     amount: {
         type: String,
-        // required: true
+        required: true
+
     },
-    sevaAshram: {
+    jan: {
         type: String,
         required: true
+
     },
-    help: {
+    feb: {
         type: String,
         required: true
+
     },
-    active: {
+    march: {
         type: String,
         required: true
+
     },
-    refrenceName: {
-        type: String,
-    },
-    refrencePhone: {
-        type: String,
-    },
-    work: {
+    april: {
         type: String,
         required: true
+
     },
+    may: {
+        type: String,
+        required: true
+
+    },
+    june: {
+        type: String,
+        required: true
+
+    },
+    july: {
+        type: String,
+        required: true
+
+    },
+    aug: {
+        type: String,
+        required: true
+
+    },
+    sep: {
+        type: String,
+        required: true
+
+    },
+    oct: {
+        type: String,
+        required: true
+
+    },
+    nov: {
+        type: String,
+        required: true
+
+    },
+    dec: {
+        type: String,
+        required: true
+
+    },
+
 })
 
-module.exports = mongoose.model("Employee", employeeSchema);
-
+module.exports = mongoose.model("MonthlyMember", monthlyMemberSchema);

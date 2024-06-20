@@ -13,7 +13,8 @@ const createEmployee = async (req, res) => {
             dob,
             address,
             joinDate,
-            monthDateAndAmount,
+            month,
+            amount,
             sevaAshram,
             help,
             active,
@@ -31,7 +32,6 @@ const createEmployee = async (req, res) => {
             !dob ||
             !address ||
             !joinDate ||
-            !monthDateAndAmount ||
             !sevaAshram ||
             !help ||
             !active ||
@@ -54,7 +54,8 @@ const createEmployee = async (req, res) => {
             dob,
             address,
             joinDate,
-            monthDateAndAmount,
+            month,
+            amount,
             sevaAshram,
             help,
             active,
@@ -62,6 +63,7 @@ const createEmployee = async (req, res) => {
             refrencePhone,
             work
         });
+
 
         return res.status(201).json({
             success: true,
@@ -129,12 +131,13 @@ const exportToExcel = async (req, res) => {
             { header: 'Father Name', key: 'fatherName', width: 20 },
             { header: 'Phone 1', key: 'phone1', width: 15 },
             { header: 'Phone 2', key: 'phone2', width: 15 }, // optional
-            { header: 'Blood Group', key: 'bloodGroup', width: 10 }, // optional
+            { header: 'Blood Group', key: 'blood', width: 20 }, // optional
             { header: 'Sex', key: 'sex', width: 10 },
             { header: 'Date of Birth', key: 'dob', width: 15 },
             { header: 'Address', key: 'address', width: 25 },
             { header: 'Join Date', key: 'joinDate', width: 15 },
-            { header: 'Month Date and Amount', key: 'monthDateAndAmount', width: 30 },
+            { header: 'Month Date', key: 'month', width: 30 },
+            { header: 'Amount', key: 'amount', width: 20 },
             { header: 'Seva Ashram', key: 'sevaAshram', width: 20 },
             { header: 'Help', key: 'help', width: 15 },
             { header: 'Active', key: 'active', width: 10 },
@@ -149,12 +152,13 @@ const exportToExcel = async (req, res) => {
                 fatherName: employee.fatherName,
                 phone1: employee.phone1,
                 phone2: employee.phone2 || '', // optional
-                bloodGroup: employee.bloodGroup || '', // optional
+                blood: employee.blood || '', // optional
                 sex: employee.sex,
                 dob: employee.dob,
                 address: employee.address,
                 joinDate: employee.joinDate,
-                monthDateAndAmount: JSON.stringify(employee.monthDateAndAmount), // Assuming this is an object that needs to be stringified
+                month: JSON.stringify(employee.month), // Assuming this is an object that needs to be stringified
+                amount: JSON.stringify(employee.amount), // Assuming this is an object that needs to be stringified
                 sevaAshram: employee.sevaAshram,
                 help: employee.help,
                 active: employee.active,

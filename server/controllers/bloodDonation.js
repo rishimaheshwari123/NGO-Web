@@ -3,7 +3,7 @@ const ExcelJS = require('exceljs');
 
 const createBloodDonationCtrl = async (req, res) => {
     try {
-        const { name, fatherName, bloodgroup, phone, age, address, dateOfVanue } =
+        const { name, fatherName, bloodgroup, phone, age, address, date, vanue } =
             req.body;
 
         if (
@@ -13,7 +13,8 @@ const createBloodDonationCtrl = async (req, res) => {
             !phone ||
             !age ||
             !address ||
-            !dateOfVanue
+            !date ||
+            !vanue
         ) {
             return res.status(400).json({
                 success: false,
@@ -21,7 +22,7 @@ const createBloodDonationCtrl = async (req, res) => {
             });
         }
 
-        const blood = await bloodDonationModel.create({ name, fatherName, bloodgroup, phone, age, address, dateOfVanue })
+        const blood = await bloodDonationModel.create({ name, fatherName, bloodgroup, phone, age, address, date, vanue })
 
         return res.status(201).json({
             success: true,
@@ -84,13 +85,14 @@ const exportToExcel = async (req, res) => {
         const worksheet = workbook.addWorksheet('Bloods');
 
         worksheet.columns = [
-            { header: 'Name', key: 'name', width: 20 },
-            { header: 'Father Name', key: 'fatherName', width: 20 },
-            { header: 'Blood Group', key: 'bloodgroup', width: 15 },
-            { header: 'Phone', key: 'phone', width: 20 },
+            { header: 'Name', key: 'name', width: 30 },
+            { header: 'Father Name', key: 'fatherName', width: 30 },
+            { header: 'Blood Group', key: 'bloodgroup', width: 20 },
+            { header: 'Phone', key: 'phone', width: 25 },
             { header: 'Age', key: 'age', width: 10 },
-            { header: 'Address', key: 'address', width: 25 },
-            { header: 'Date of Vanue', key: 'dateOfVanue', width: 25 },
+            { header: 'Address', key: 'address', width: 35 },
+            { header: 'Date ', key: 'date', width: 25 },
+            { header: 'Vanue ', key: 'vanue', width: 25 },
 
         ];
 
@@ -102,7 +104,8 @@ const exportToExcel = async (req, res) => {
                 phone: blood.phone,
                 age: blood.age,
                 address: blood.address,
-                dateOfVanue: blood.dateOfVanue,
+                date: blood.date,
+                vanue: blood.vanue,
 
             });
         });

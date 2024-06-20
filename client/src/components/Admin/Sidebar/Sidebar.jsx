@@ -9,10 +9,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { setToken, setUser } from "../../../redux/authSlice";
 import { MdEmojiEvents } from "react-icons/md";
 import { MdOutlineFestival } from "react-icons/md";
-import { FcLandscape } from "react-icons/fc";
-import { FcCameraIdentification } from "react-icons/fc";
 import { FcOrganization } from "react-icons/fc";
 import { FcOrgUnit } from "react-icons/fc";
+import { FcBullish } from "react-icons/fc";
 
 const Sidebar = () => {
   const [isCollapsed, setIsCollapsed] = useState(
@@ -86,7 +85,12 @@ const Sidebar = () => {
         {isCollapsed ? (
           <>
             {[
-              { to: "/admin/dashboard", icon: <FaHome />, label: "Dashboard" },
+              { to: "/", icon: <FaHome />, label: "Back To Home" },
+              {
+                to: "/admin/dashboard",
+                icon: <FcBullish />,
+                label: "Dashboard",
+              },
               {
                 to: "/admin/addEvent",
                 icon: <MdEmojiEvents />,
@@ -97,16 +101,16 @@ const Sidebar = () => {
                 icon: <MdOutlineFestival />,
                 label: "Get Events",
               },
-              {
-                to: "/admin/createCulture",
-                icon: <FcLandscape />,
-                label: "Create Culture",
-              },
-              {
-                to: "/admin/getCulture",
-                icon: <FcCameraIdentification />,
-                label: "Get Culture",
-              },
+              // {
+              //   to: "/admin/createCulture",
+              //   icon: <FcLandscape />,
+              //   label: "Create Culture",
+              // },
+              // {
+              //   to: "/admin/getCulture",
+              //   icon: <FcCameraIdentification />,
+              //   label: "Get Culture",
+              // },
               {
                 to: "/admin/createOrganizationData",
                 icon: <FcOrganization />,
@@ -141,7 +145,13 @@ const Sidebar = () => {
         ) : (
           <>
             {[
-              { to: "/admin/dashboard", icon: <FaHome />, label: "Dashboard" },
+              { to: "/", icon: <FaHome />, label: "Back To Home" },
+
+              {
+                to: "/admin/dashboard",
+                icon: <FcBullish />,
+                label: "Dashboard",
+              },
               {
                 to: "/admin/addEvent",
                 icon: <MdEmojiEvents />,
@@ -152,16 +162,16 @@ const Sidebar = () => {
                 icon: <MdOutlineFestival />,
                 label: "Get Events",
               },
-              {
-                to: "/admin/createCulture",
-                icon: <FcLandscape />,
-                label: "Create Culture",
-              },
-              {
-                to: "/admin/getCulture",
-                icon: <FcCameraIdentification />,
-                label: "Get Culture",
-              },
+              // {
+              //   to: "/admin/createCulture",
+              //   icon: <FcLandscape />,
+              //   label: "Create Culture",
+              // },
+              // {
+              //   to: "/admin/getCulture",
+              //   icon: <FcCameraIdentification />,
+              //   label: "Get Culture",
+              // },
               {
                 to: "/admin/createOrganizationData",
                 icon: <FcOrganization />,

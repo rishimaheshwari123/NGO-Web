@@ -1,43 +1,45 @@
-import React, { useEffect, useState } from "react";
 import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { FaTrashAlt } from "react-icons/fa";
 import { toast } from "react-toastify";
 
-const GetCasePayment = () => {
+const GetExpense = () => {
+  const [eventList, setEventList] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
   const BASE_URL = process.env.REACT_APP_BASE_URL;
 
-  const [payment, setPayment] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
-
-  // Function to fetch case payment data
-  const getCasePaymentData = async () => {
+  const getAllEventListData = async () => {
     try {
-      const response = await axios.get(`${BASE_URL}/casePayment/getAll`);
+      const response = await axios.get(`${BASE_URL}/expense/getAll`);
       if (response?.data?.success) {
-        setPayment(response.data.payments);
+        setEventList(response.data.expense);
       }
     } catch (error) {
-      console.log("Could not fetch case payments from frontend", error);
+      console.error("Error fetching event list:", error);
+      toast.error("Failed to fetch event list");
     }
   };
 
-  // Function to handle case payment deletion
+  useEffect(() => {
+    getAllEventListData();
+  }, []);
+
   const handleDelete = async (id) => {
     try {
-      const res = await axios.delete(`${BASE_URL}/casePayment/delete/${id}`);
+      const res = await axios.delete(`${BASE_URL}/expense/delete/${id}`);
       if (res?.data?.success) {
-        setPayment(payment.filter((currElem) => currElem._id !== id));
-        toast.success(res.data.message);
+        setEventList(eventList.filter((currElem) => currElem._id !== id));
+        toast.success("Expense deleted successfully!");
       }
     } catch (error) {
-      console.error("Error deleting case payment:", error);
-      toast.error("Failed to delete case payment");
+      console.error("Error deleting expense list item:", error);
+      toast.error("Failed to delete expense list item");
     }
   };
 
   const downloadExcel = async () => {
     try {
-      const response = await axios.get(`${BASE_URL}/casePayment/download`, {
+      const response = await axios.get(`${BASE_URL}/expense/download`, {
         responseType: "blob",
       });
 
@@ -51,7 +53,7 @@ const GetCasePayment = () => {
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = "CasePayment.xlsx";
+      a.download = "Expense.xlsx";
       document.body.appendChild(a);
       a.click();
       a.remove();
@@ -64,34 +66,22 @@ const GetCasePayment = () => {
     }
   };
 
-  // Effect hook to fetch data on component mount
-  useEffect(() => {
-    getCasePaymentData();
-  }, []);
-
-  // Function to handle search input change
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
   };
 
-  // Function to filter case payments based on search term
-  const filterCasePayments = (payments, searchTerm) => {
-    return payments.filter((payment) =>
-      Object.values(payment).some(
-        (value) =>
-          typeof value === "string" &&
-          value.toLowerCase().includes(searchTerm.toLowerCase())
-      )
-    );
-  };
-
-  // Filter case payments based on search term
-  const filteredPayments = filterCasePayments(payment, searchTerm);
+  const filteredEventList = eventList.filter((item) =>
+    Object.values(item).some(
+      (value) =>
+        typeof value === "string" &&
+        value.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+  );
 
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="flex justify-between items-center">
-        <p className="text-2xl font-semibold mb-4">All Case Payments</p>
+        <p className="text-2xl font-semibold mb-4">All Expense</p>
         <div className="flex justify-between items-center gap-5">
           <div className="">
             <input
@@ -115,19 +105,25 @@ const GetCasePayment = () => {
           <thead className="bg-gray-50">
             <tr>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Receipt Number
-              </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Date
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Name
+                Reason
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Amount
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Reason
+                Reference
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Name
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Payment Mode
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Other
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Action
@@ -135,34 +131,35 @@ const GetCasePayment = () => {
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
-            {filteredPayments.length > 0 ? (
-              filteredPayments.map((currElem, index) => (
+            {filteredEventList.length > 0 ? (
+              filteredEventList.map((event, index) => (
                 <tr key={index}>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-gray-900">
-                      {currElem.reciptNumber}
-                    </div>
+                    <div className="text-sm text-gray-900">{event.date}</div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-gray-900">{currElem.date}</div>
+                    <div className="text-sm text-gray-900">{event.reason}</div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-gray-900">{currElem.name}</div>
+                    <div className="text-sm text-gray-900">{event.amount}</div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="text-sm text-gray-900">
-                      {currElem.amount}
+                      {event.refrence}
                     </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-gray-900">
-                      {currElem.reason}
-                    </div>
+                    <div className="text-sm text-gray-900">{event.name}</div>
                   </td>
-
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    <div className="text-sm text-gray-900">{event.payment}</div>
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    <div className="text-sm text-gray-900">{event.other}</div>
+                  </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <button
-                      onClick={() => handleDelete(currElem._id)}
+                      onClick={() => handleDelete(event._id)}
                       className="text-red-600 hover:text-red-800"
                     >
                       <FaTrashAlt size={23} />
@@ -172,10 +169,8 @@ const GetCasePayment = () => {
               ))
             ) : (
               <tr>
-                <td className="px-6 py-4 whitespace-nowrap" colSpan="6">
-                  <p className="text-sm text-gray-500">
-                    No case payments found
-                  </p>
+                <td className="px-6 py-4 whitespace-nowrap" colSpan="8">
+                  <p className="text-sm text-gray-500">No expenses found</p>
                 </td>
               </tr>
             )}
@@ -186,4 +181,4 @@ const GetCasePayment = () => {
   );
 };
 
-export default GetCasePayment;
+export default GetExpense;

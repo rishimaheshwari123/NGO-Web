@@ -4,7 +4,7 @@ import { FaTrashAlt } from "react-icons/fa";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const GetAllCulture = () => {
+const GetAllCultureAdmin = () => {
   const [cultures, setCultures] = useState([]);
 
   const getCultureData = async () => {
@@ -110,4 +110,4 @@ const GetAllCulture = () => {
   );
 };
 
-export default GetAllCulture;
+export default GetAllCultureAdmin;

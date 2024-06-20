@@ -4,6 +4,8 @@ import CreateOnlinePayment from "./create/CreateOnlinePayment";
 import CreateCasePayment from "./create/CreateCasePayment";
 import CreateBloodDonation from "./create/CreateBloodDonation";
 import CreateEventList from "./create/CreateEventList";
+import CreateExpense from "./create/CreateExpense";
+import CreateMonthlyMember from "./create/CreateMonthlyMember";
 
 const CreateOrganizationData = () => {
   const [active, setActive] = useState("member");
@@ -68,6 +70,26 @@ const CreateOrganizationData = () => {
           >
             BIRTHDAY
           </button>
+          <button
+            className={`${
+              active === "expense"
+                ? "bg-sky-900 text-yellow-400 px-1 py-2 font-bold text-xl"
+                : "text-white text-xl"
+            }`}
+            onClick={() => handleTabName("expense")}
+          >
+            EXPENSE
+          </button>
+          <button
+            className={`${
+              active === "monthlyMember"
+                ? "bg-sky-900 text-yellow-400 px-1 py-2 font-bold text-xl"
+                : "text-white text-xl"
+            }`}
+            onClick={() => handleTabName("monthlyMember")}
+          >
+            MONTHLY MEMBER
+          </button>
         </div>
       </div>
 
@@ -76,6 +98,8 @@ const CreateOrganizationData = () => {
       {active === "cash" && <CreateCasePayment />}
       {active === "blood" && <CreateBloodDonation />}
       {active === "event" && <CreateEventList />}
+      {active === "expense" && <CreateExpense />}
+      {active === "monthlyMember" && <CreateMonthlyMember />}
     </>
   );
 };

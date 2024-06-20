@@ -40,30 +40,32 @@ const GetOnlinePayment = () => {
 
   const downloadExcel = async () => {
     try {
-      const response = await axios.get(`${BASE_URL}/onlinePayment/download`);
+      const response = await axios.get(`${BASE_URL}/onlinePayment/download`, {
+        responseType: "blob",
+      });
+
       if (response.status !== 200) {
         throw new Error("Failed to download Excel file");
       }
 
-      const blob = await response.blob();
+      const blob = new Blob([response.data], {
+        type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      });
       const url = window.URL.createObjectURL(blob);
-
       const a = document.createElement("a");
       a.href = url;
-      a.download = "onlinepayment.xlsx";
+      a.download = "OnlinePayment.xlsx";
       document.body.appendChild(a);
       a.click();
-
+      a.remove();
       window.URL.revokeObjectURL(url);
-      document.body.removeChild(a);
 
-      console.log("Excel file downloaded successfully");
+      toast.success("Excel file downloaded successfully");
     } catch (err) {
       console.error("Error downloading Excel file:", err);
       toast.error("Failed to download Excel file");
     }
   };
-
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
   };
@@ -90,13 +92,12 @@ const GetOnlinePayment = () => {
               className="border border-gray-300 rounded-md px-3 py-2 w-full"
             />
           </div>
-          <a
-            href={`${BASE_URL}/onlinePayment/download`}
+          <button
             onClick={downloadExcel}
             className="lg:text-xl text-sm font-bold bg-gray-300 text-black rounded-md text-center px-2 py-1 hover:text-yellow-500 hover:bg-black hover:transition-all hover:duration-500 transition-all duration-500"
           >
             Download Excel
-          </a>
+          </button>
         </div>
       </div>
       <div className="overflow-x-auto">

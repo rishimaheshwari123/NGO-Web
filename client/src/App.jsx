@@ -20,8 +20,8 @@ import Donet from "./pages/Donet";
 import Highlight from "./pages/HighLight";
 import { useSelector } from "react-redux";
 import Product from "./pages/Product";
-import CreateCulture from "./components/Admin/pages/CreateCulture";
-import GetAllCulture from "./components/Admin/pages/GetAllCulture";
+// import CreateCulture from "./components/Admin/pages/CreateCulture";
+// import GetAllCulture from "./components/Admin/pages/GetAllCulture";
 
 const App = () => {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
@@ -55,8 +55,8 @@ const App = () => {
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="addEvent" element={<CreateEvent />} />
             <Route path="getEvents" element={<GetAllEvents />} />
-            <Route path="createCulture" element={<CreateCulture />} />
-            <Route path="getCulture" element={<GetAllCulture />} />
+            {/* <Route path="createCulture" element={<CreateCulture />} />
+            <Route path="getCulture" element={<GetAllCulture />} /> */}
             <Route
               path="createOrganizationData"
               element={<CreateOrganizationData />}

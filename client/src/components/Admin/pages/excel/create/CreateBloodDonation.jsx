@@ -13,7 +13,8 @@ const CreateBloodDonation = () => {
     phone: "",
     age: "",
     address: "",
-    dateOfVanue: "",
+    date: "",
+    vanue: "",
   });
 
   const handleChange = (e) => {
@@ -53,7 +54,8 @@ const CreateBloodDonation = () => {
           phone: "",
           age: "",
           address: "",
-          dateOfVanue: "",
+          date: "",
+          vanue: "",
         });
       }
     } catch (error) {
@@ -102,19 +104,30 @@ const CreateBloodDonation = () => {
       <div className="mb-4">
         <label
           className="block text-gray-700 text-xl font-bold mb-2"
-          htmlFor="name"
+          htmlFor="blood"
         >
-          Blood Group : <span className="text-red-500">*</span>
+          Blood Group:
         </label>
-        <input
-          type="text"
+        <select
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-[50px] text-2xl"
-          name="bloodgroup"
           id="bloodgroup"
+          name="bloodgroup"
           value={formData.bloodgroup}
           onChange={handleChange}
-          required
-        />
+        >
+          <option value="" disabled>
+            Select your blood group
+          </option>
+          <option value="">Select blood group</option>
+          <option value="A+">A+</option>
+          <option value="A-">A-</option>
+          <option value="B+">B+</option>
+          <option value="B-">B-</option>
+          <option value="AB+">AB+</option>
+          <option value="AB-">AB-</option>
+          <option value="O+">O+</option>
+          <option value="O-">O-</option>
+        </select>
       </div>
       <div className="mb-4">
         <label
@@ -173,14 +186,31 @@ const CreateBloodDonation = () => {
           className="block text-gray-700 text-xl font-bold mb-2"
           htmlFor="name"
         >
-          Date Of Vanue : <span className="text-red-500">*</span>
+          Date : <span className="text-red-500">*</span>
+        </label>
+        <input
+          type="date"
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-[50px] text-2xl"
+          name="date"
+          id="date"
+          value={formData.date}
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <div className="mb-4">
+        <label
+          className="block text-gray-700 text-xl font-bold mb-2"
+          htmlFor="name"
+        >
+          Vanue : <span className="text-red-500">*</span>
         </label>
         <input
           type="text"
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-[50px] text-2xl"
-          name="dateOfVanue"
-          id="dateOfVanue"
-          value={formData.dateOfVanue}
+          name="vanue"
+          id="vanue"
+          value={formData.vanue}
           onChange={handleChange}
           required
         />

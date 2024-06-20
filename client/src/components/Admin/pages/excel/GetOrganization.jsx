@@ -4,6 +4,8 @@ import GetOnlinePayment from "./get/GetOnlinePayment";
 import GetCasePayment from "./get/GetCasePayment";
 import GetBloodDonation from "./get/GetBloodDonation";
 import GetEventList from "./get/GetEventList";
+import GetExpense from "./get/GetExpense";
+import GetMonthlyMember from "./get/GetMonthlyMember";
 
 const GetOrganization = () => {
   const [active, setActive] = useState("member");
@@ -68,6 +70,27 @@ const GetOrganization = () => {
           >
             BIRTHDAY
           </button>
+
+          <button
+            className={`${
+              active === "expense"
+                ? "bg-sky-900 text-yellow-400 px-1 py-2 font-bold text-xl"
+                : "text-white text-xl"
+            }`}
+            onClick={() => handleTabName("expense")}
+          >
+            EXPENSE
+          </button>
+          <button
+            className={`${
+              active === "monthlyMember"
+                ? "bg-sky-900 text-yellow-400 px-1 py-2 font-bold text-xl"
+                : "text-white text-xl"
+            }`}
+            onClick={() => handleTabName("monthlyMember")}
+          >
+            MONTHLY MEMBER
+          </button>
         </div>
       </div>
 
@@ -76,6 +99,8 @@ const GetOrganization = () => {
       {active === "cash" && <GetCasePayment />}
       {active === "blood" && <GetBloodDonation />}
       {active === "event" && <GetEventList />}
+      {active === "expense" && <GetExpense />}
+      {active === "monthlyMember" && <GetMonthlyMember />}
     </>
   );
 };

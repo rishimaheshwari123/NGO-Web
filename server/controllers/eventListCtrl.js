@@ -9,6 +9,7 @@ const createEventListCtrl = async (req, res) => {
 
             date,
             year,
+            name,
             bhojan,
             phone,
             other
@@ -19,6 +20,7 @@ const createEventListCtrl = async (req, res) => {
         if (
             !date ||
             !year ||
+            !name ||
             !bhojan ||
             !phone ||
             !other
@@ -33,6 +35,7 @@ const createEventListCtrl = async (req, res) => {
         const eventLists = await eventListModel.create({
             date,
             year,
+            name,
             bhojan,
             phone,
             other
@@ -105,6 +108,7 @@ const exportToExcel = async (req, res) => {
         worksheet.columns = [
             { header: 'Date', key: 'date', width: 20 },
             { header: 'Year', key: 'year', width: 20 },
+            { header: 'Name', key: 'name', width: 30 },
             { header: 'Bhojan', key: 'bhojan', width: 20 },
             { header: 'Phone', key: 'phone', width: 15 },
             { header: 'Other', key: 'other', width: 10 },
@@ -115,6 +119,7 @@ const exportToExcel = async (req, res) => {
             worksheet.addRow({
                 date: event.date,
                 year: event.year,
+                name: event.name,
                 bhojan: event.bhojan,
                 phone: event.phone,
                 other: event.other,

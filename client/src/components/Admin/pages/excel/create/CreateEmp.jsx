@@ -15,7 +15,8 @@ const CreateEmp = () => {
     dob: "",
     address: "",
     joinDate: "",
-    monthDateAndAmount: "",
+    month: "",
+    amount: "",
     sevaAshram: "",
     help: "",
     active: "",
@@ -75,7 +76,8 @@ const CreateEmp = () => {
         dob: "",
         address: "",
         joinDate: "",
-        monthDateAndAmount: "",
+        month: "",
+        amount: "",
         sevaAshram: "",
         help: "",
         active: "",
@@ -169,14 +171,25 @@ const CreateEmp = () => {
           >
             Blood Group:
           </label>
-          <input
+          <select
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-[50px] text-2xl"
             id="blood"
-            type="text"
             name="blood"
             value={formData.blood}
             onChange={handleChange}
-          />
+          >
+            <option value="" disabled>
+              Select your blood group
+            </option>
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+          </select>
         </div>
         <div className="mb-4">
           <label
@@ -194,9 +207,9 @@ const CreateEmp = () => {
             onChange={handleChange}
           >
             <option value="">Select</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="other">Other</option>
+            <option value="MALE">Male</option>
+            <option value="FEMALE">Female</option>
+            <option value="OTHER">Other</option>
           </select>
         </div>
         <div className="mb-4">
@@ -255,14 +268,31 @@ const CreateEmp = () => {
             className="block text-gray-700 text-xl font-bold mb-2"
             htmlFor="monthDateAndAmount"
           >
-            Month Date and Amount: <span className="text-red-500">*</span>
+            Month <span className="text-red-500">*</span>
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-[50px] text-2xl"
-            id="monthDateAndAmount"
+            id="month"
+            type="date"
+            name="month"
+            value={formData.month}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            className="block text-gray-700 text-xl font-bold mb-2"
+            htmlFor="monthDateAndAmount"
+          >
+            Amount <span className="text-red-500">*</span>
+          </label>
+          <input
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-[50px] text-2xl"
+            id="month"
             type="text"
-            name="monthDateAndAmount"
-            value={formData.monthDateAndAmount}
+            name="amount"
+            value={formData.amount}
             onChange={handleChange}
             required
           />
@@ -317,8 +347,8 @@ const CreateEmp = () => {
             required
           >
             <option value="">Select</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
+            <option value="YES">Yes</option>
+            <option value="NO">No</option>
           </select>
         </div>
         <div className="mb-4">

@@ -37,6 +37,9 @@ app.use("/api/v1/casePayment", require("./routes/casePaymentRoute"))
 app.use("/api/v1/blood", require("./routes/BloodDonation"))
 app.use("/api/v1/eventList", require("./routes/eventListRoute"))
 app.use("/api/v1/culture", require("./routes/clutureRoute"))
+app.use("/api/v1/expense", require("./routes/ExpenseRoute"))
+app.use("/api/v1/member", require("./routes/monthlyMember"))
+app.use("/api/v1/category", require("./routes/categoryRoute"))
 
 
 app.use("/", (req, res) => {

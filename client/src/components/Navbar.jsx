@@ -9,6 +9,7 @@ import { FaInstagram } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa6";
 import { RiTwitterXFill } from "react-icons/ri";
 import { MdEmail } from "react-icons/md";
+import HeaderWhatsapp from "./HeaderWhatsapp";
 
 const Navbar = () => {
   const location = useLocation();
@@ -23,8 +24,8 @@ const Navbar = () => {
 
   return (
     <>
-      <div className=" flex flex-col sm:flex-row justify-between items-center px-5 py-4 bg-pink-600">
-        <div className=" flex flex-col sm:flex-row gap-4 sm:gap-6 text-sm text-white">
+      <div className="  flex flex-col sm:flex-row justify-between items-center px-5 py-4 bg-pink-600">
+        <div className=" flex flex-col sm:flex-row gap-4 sm:gap-6 text-xl text-white">
           <div className="flex gap-2 items-center">
             <MdEmail size={20} color="orange" />
             teampahal.bareli@gmail.com
@@ -60,7 +61,7 @@ const Navbar = () => {
         </div>
       </div>
       <nav className="bg-white text-black  w-full z-10 text-sm">
-        <div className="max-w-6xl mx-auto px-4 flex justify-between items-center">
+        <div className="max-w-6xl mx-auto px-4 text-xl flex justify-between items-center">
           <div>
             <Link
               to="/"
@@ -137,12 +138,13 @@ const Navbar = () => {
             </Link>
             <Link
               to="/donate"
-              className={`bg-gray-300 rounded-lg py-2 px-6 ${
+              className={`bg-pink-600 font-bold text-white rounded-lg py-2 px-6 ${
                 pathMatch("/donate") ? "text-red-600 font-bold" : "text-black"
               }`}
             >
               Donate
             </Link>
+            <HeaderWhatsapp />
           </div>
           <div className="md:hidden flex items-center">
             <button onClick={toggleMenu}>
@@ -152,7 +154,7 @@ const Navbar = () => {
         </div>
         {/* Sidebar for mobile */}
         <div
-          className={`fixed inset-y-0 left-0 w-64 bg-white text-black transform ${
+          className={`fixed inset-y-0 text-xl left-0 w-64 bg-white text-black transform ${
             isOpen ? "translate-x-0" : "-translate-x-full"
           } transition-transform duration-300 ease-in-out md:hidden z-50`}
         >

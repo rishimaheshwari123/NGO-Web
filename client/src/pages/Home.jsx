@@ -27,22 +27,22 @@ const slides = [
 ];
 
 const Home = () => {
-  const [cultures, setCultures] = useState([]);
+  const [category, setCategoy] = useState([]);
 
-  const getCultureData = async () => {
+  const getAllCategory = async () => {
     try {
       const response = await axios.get(
-        `${process.env.REACT_APP_BASE_URL}/culture/getAll`
+        `${process.env.REACT_APP_BASE_URL}/category/getAll`
       );
       if (response?.data?.success) {
-        setCultures(response.data.cultures);
+        setCategoy(response.data.categorys);
       }
     } catch (error) {
-      console.log("Could not fetch case payments from frontend", error);
+      console.log("Could not fetch category from frontend", error);
     }
   };
   useEffect(() => {
-    getCultureData();
+    getAllCategory();
   }, []);
   return (
     <>
@@ -117,32 +117,31 @@ const Home = () => {
         <p className="text-cyan-500 uppercase mb-12 text-2xl font-semibold lg:text-4xl lg:font-semibold text-center">
           our culture
         </p>
-        <div className="grid gap-10 lg:grid-cols-3 md:grid-cols-2 ">
-          {cultures.length > 0 ? (
-            cultures.map((currElem, index) => (
+        <div className="grid gap-5 lg:grid-cols-3 md:grid-cols-2">
+          {category.length > 0 ? (
+            category.map((currElem, index) => (
               <Link to={`/product?id=${currElem._id}`} key={index}>
                 <div
-                  className="card p-4 border shadow-xl shadow-yellow-500 "
+                  className="card p-4 border shadow-xl shadow-yellow-500 flex flex-col justify-between h-full"
                   key={currElem.id}
                 >
                   <img
                     src={currElem.image}
                     alt="not found"
-                    className="rounded-lg hover:opacity-75"
+                    className="rounded-lg hover:opacity-75 h-48 w-full object-cover"
                   />
-                  <p className="text-center text-2xl lg:text-3xl font-semibold mt-5">
+                  <p className="text-center text-2xl lg:text-3xl font-semibold mt-4">
                     {currElem.title}
                   </p>
                 </div>
               </Link>
             ))
           ) : (
-            <>
-              <p className="flex m-auto">No culture found</p>
-            </>
+            <p className="flex m-auto">No category found</p>
           )}
         </div>
       </div>
+
       <Footer />
     </>
   );
