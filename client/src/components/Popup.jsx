@@ -17,7 +17,7 @@ const Popup = ({ isVisible, onClose }) => {
         <h2 className="text-2xl font-bold text-cyan-500 text-center  mt-8 mb-3">
           सूचना पर तत्काल सेवा
         </h2>
-        <h2 className="text-2xl font-bold text-cyan-500 text-center  mt-8 mb-3">
+        <h2 className="text-2xl font-bold text-cyan-500 text-center   mb-3">
           24x7 ,365 days
         </h2>
         <div className="border-b-2 border-b-yellow-500 mb-6"></div>
