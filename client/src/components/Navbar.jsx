@@ -10,6 +10,9 @@ import { FaYoutube } from "react-icons/fa6";
 import { RiTwitterXFill } from "react-icons/ri";
 import { MdEmail } from "react-icons/md";
 import HeaderWhatsapp from "./HeaderWhatsapp";
+import LanguageSwitcher from "./LangaugeSwither";
+
+
 
 const Navbar = () => {
   const location = useLocation();
@@ -38,7 +41,9 @@ const Navbar = () => {
             <FaRegClock size={20} color="orange" />
             24x7, 365 days
           </div>
+        <LanguageSwitcher></LanguageSwitcher>
         </div>
+
         <div className=" flex gap-3 mt-4 sm:mt-0 text-white">
           <Link to="https://www.facebook.com/teampahal.bareli1" target="_blank">
             <FaFacebook size={25} className="hover:text-yellow-400" />
@@ -145,6 +150,7 @@ const Navbar = () => {
               Donate
             </Link>
             <HeaderWhatsapp />
+
           </div>
           <div className="md:hidden flex items-center">
             <button onClick={toggleMenu}>
@@ -253,6 +259,7 @@ const Navbar = () => {
             >
               Donate
             </Link>
+            <LanguageSwitcher></LanguageSwitcher>
             <div className="border-b-2 border-b-black"></div>
           </div>
         </div>

@@ -114,23 +114,25 @@ export const info = [
 
 export const mission = [
     {
-        id: 1,
-        titile: "OUR MISSION",
-        subTitle: "Concern About Our Mission",
-        desc: "Team Pahal Bareli Foundation is a non-profit organization with the aim of improving the lives of individuals by providing basic necessities."
+      id: 1,
+      titleKey: "mission_title_1",
+      subTitleKey: "mission_subTitle_1",
+      descKey: "mission_desc_1"
     },
     {
-        id: 2,
-        titile: "OUR VISION",
-        subTitle: "Concern About Our Mission",
-        desc: "Our efforts are aimed at combating poverty and social isolation while reigniting hope for a better future. We believe that everyone has the right to equal access to the resources and opportunities needed for a dignified life and full participation in society. Our dream is a world without starvation, hunger, or poverty, and we are dedicated to making that vision a reality."
+      id: 2,
+      titleKey: "mission_title_2",
+      subTitleKey: "mission_subTitle_2",
+      descKey: "mission_desc_2"
     },
     {
-        id: 3,
-        titile: "OUR GOAL",
-        subTitle: "Concern About Our Mission",
-        desc: "With your participation, we aspire to uplift humanity by enhancing the well-being of all, including humans, animals, and the environment. Together, we can address imbalances in society by empowering underprivileged individuals and guiding them toward a world characterized by equality, dignity, and respect."
-    }]
+      id: 3,
+      titleKey: "mission_title_3",
+      subTitleKey: "mission_subTitle_3",
+      descKey: "mission_desc_3"
+    }
+  ];
+  
 
 export const services = [
     {

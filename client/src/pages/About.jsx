@@ -4,6 +4,7 @@ import { mission } from "../data/data";
 import Slider from "../components/Slider";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { useTranslation } from 'react-i18next';
 
 const slides = [
   {
@@ -29,6 +30,8 @@ const info = [
 ];
 
 const About = () => {
+  const { t } = useTranslation();
+
   return (
     <>
       <Navbar />
@@ -38,7 +41,7 @@ const About = () => {
 
           <div className="mt-24">
             <p className="text-center text-cyan-500 font-semibold text-3xl uppercase mb-16">
-              meet with our team
+              {t('meet_our_team')}
             </p>
 
             <Slider slides={slides} />
@@ -48,7 +51,7 @@ const About = () => {
 
           <div className="my-16">
             <p className="text-center text-3xl font-bold uppercase mb-10">
-              Some Information you should know about us
+              {t('some_info_about_us')}
             </p>
             <div className="grid lg:grid-cols-4 gap-10 bg-transparent">
               {info.map((currElem, index) => (
@@ -72,28 +75,13 @@ const About = () => {
             />
             <p className="grid gap-3 text-sm">
               <span>
-                Team Pahal Bareli Foundation, a non-government organization
-                established in 2018, is dedicated to improving the well-being of
-                all living beings. Our holistic approach encompasses humans,
-                animals, and the environment, reflected in our innovative
-                programs for the underprivileged, animal welfare, and
-                environmental conservation.
+                {t('foundation_description_1')}
               </span>
               <span>
-                We provide comprehensive support to the homeless, including
-                medical care and educational opportunities, while also bringing
-                joy to orphanages through essential supplies and recreational
-                activities. Our commitment extends to rescuing and feeding stray
-                dogs and engaging in tree planting initiatives for environmental
-                sustainability
+                {t('foundation_description_2')}
               </span>
               <span>
-                We provide comprehensive support to the homeless, including
-                medical care and educational opportunities, while also bringing
-                joy to orphanages through essential supplies and recreational
-                activities. Our commitment extends to rescuing and feeding stray
-                dogs and engaging in tree planting initiatives for environmental
-                sustainability
+                {t('foundation_description_3')}
               </span>
             </p>
           </div>
@@ -101,17 +89,17 @@ const About = () => {
         <div className="main grid lg:gap-16 gap-14">
           <br />
           <p className="text-center text-4xl font-semibold text-white ">
-            Concern About Our Mission
+            {t('concern_about_our_mission')}
           </p>
 
           <div className="grid lg:grid-cols-3 lg:px-20 gap-8 px-5 text-white">
-            {mission.map((currElem) => (
-              <div className="" key={currElem.id}>
-                <p className="text-xl font-semibold">{currElem.titile}</p>
-                <p className="text-xl mt-4">{currElem.subTitle}</p>
-                <p className="text-sm mt-3 leading-7">{currElem.desc}</p>
-              </div>
-            ))}
+          {mission.map((currElem) => (
+        <div key={currElem.id}>
+          <p className="text-xl font-semibold">{t(currElem.titleKey)}</p>
+          <p className="text-xl mt-4">{t(currElem.subTitleKey)}</p>
+          <p className="text-sm mt-3 leading-7">{t(currElem.descKey)}</p>
+        </div>
+      ))}
           </div>
           <br />
         </div>
