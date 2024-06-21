@@ -157,7 +157,7 @@ const CreateMonthlyMember = () => {
           className="block text-gray-700 text-xl font-bold mb-2"
           htmlFor="jan"
         >
-          January : <span className="text-red-500">*</span>
+          January
         </label>
         <input
           type="date"
@@ -166,7 +166,7 @@ const CreateMonthlyMember = () => {
           id="jan"
           value={formData.jan}
           onChange={handleChange}
-          required
+          // required
         />
       </div>
       <div className="mb-4">
@@ -174,7 +174,7 @@ const CreateMonthlyMember = () => {
           className="block text-gray-700 text-xl font-bold mb-2"
           htmlFor="feb"
         >
-          February : <span className="text-red-500">*</span>
+          February
         </label>
         <input
           type="date"
@@ -183,7 +183,7 @@ const CreateMonthlyMember = () => {
           id="feb"
           value={formData.feb}
           onChange={handleChange}
-          required
+          // required
         />
       </div>
       <div className="mb-4">
@@ -191,7 +191,7 @@ const CreateMonthlyMember = () => {
           className="block text-gray-700 text-xl font-bold mb-2"
           htmlFor="march"
         >
-          March : <span className="text-red-500">*</span>
+          March
         </label>
         <input
           type="date"
@@ -200,7 +200,7 @@ const CreateMonthlyMember = () => {
           id="march"
           value={formData.march}
           onChange={handleChange}
-          required
+          // required
         />
       </div>
 
@@ -209,7 +209,7 @@ const CreateMonthlyMember = () => {
           className="block text-gray-700 text-xl font-bold mb-2"
           htmlFor="april"
         >
-          April : <span className="text-red-500">*</span>
+          April :
         </label>
         <input
           type="date"
@@ -218,7 +218,7 @@ const CreateMonthlyMember = () => {
           id="april"
           value={formData.april}
           onChange={handleChange}
-          required
+          // required
         />
       </div>
 
@@ -227,7 +227,7 @@ const CreateMonthlyMember = () => {
           className="block text-gray-700 text-xl font-bold mb-2"
           htmlFor="may"
         >
-          May : <span className="text-red-500">*</span>
+          May
         </label>
         <input
           type="date"
@@ -236,7 +236,7 @@ const CreateMonthlyMember = () => {
           id="may"
           value={formData.may}
           onChange={handleChange}
-          required
+          // required
         />
       </div>
 
@@ -245,7 +245,7 @@ const CreateMonthlyMember = () => {
           className="block text-gray-700 text-xl font-bold mb-2"
           htmlFor="june"
         >
-          June : <span className="text-red-500">*</span>
+          June
         </label>
         <input
           type="date"
@@ -254,7 +254,7 @@ const CreateMonthlyMember = () => {
           id="june"
           value={formData.june}
           onChange={handleChange}
-          required
+          // required
         />
       </div>
 
@@ -263,7 +263,7 @@ const CreateMonthlyMember = () => {
           className="block text-gray-700 text-xl font-bold mb-2"
           htmlFor="july"
         >
-          July : <span className="text-red-500">*</span>
+          July
         </label>
         <input
           type="date"
@@ -272,7 +272,7 @@ const CreateMonthlyMember = () => {
           id="july"
           value={formData.july}
           onChange={handleChange}
-          required
+          // required
         />
       </div>
 
@@ -281,7 +281,7 @@ const CreateMonthlyMember = () => {
           className="block text-gray-700 text-xl font-bold mb-2"
           htmlFor="aug"
         >
-          August : <span className="text-red-500">*</span>
+          August
         </label>
         <input
           type="date"
@@ -290,7 +290,7 @@ const CreateMonthlyMember = () => {
           id="aug"
           value={formData.aug}
           onChange={handleChange}
-          required
+          // required
         />
       </div>
 
@@ -299,7 +299,7 @@ const CreateMonthlyMember = () => {
           className="block text-gray-700 text-xl font-bold mb-2"
           htmlFor="sep"
         >
-          September : <span className="text-red-500">*</span>
+          September
         </label>
         <input
           type="date"
@@ -308,7 +308,7 @@ const CreateMonthlyMember = () => {
           id="sep"
           value={formData.sep}
           onChange={handleChange}
-          required
+          // required
         />
       </div>
 
@@ -317,7 +317,7 @@ const CreateMonthlyMember = () => {
           className="block text-gray-700 text-xl font-bold mb-2"
           htmlFor="oct"
         >
-          October : <span className="text-red-500">*</span>
+          October
         </label>
         <input
           type="date"
@@ -326,7 +326,7 @@ const CreateMonthlyMember = () => {
           id="oct"
           value={formData.oct}
           onChange={handleChange}
-          required
+          // required
         />
       </div>
 
@@ -335,7 +335,7 @@ const CreateMonthlyMember = () => {
           className="block text-gray-700 text-xl font-bold mb-2"
           htmlFor="nov"
         >
-          November : <span className="text-red-500">*</span>
+          November
         </label>
         <input
           type="date"
@@ -344,7 +344,7 @@ const CreateMonthlyMember = () => {
           id="nov"
           value={formData.nov}
           onChange={handleChange}
-          required
+          // required
         />
       </div>
 
@@ -353,7 +353,7 @@ const CreateMonthlyMember = () => {
           className="block text-gray-700 text-xl font-bold mb-2"
           htmlFor="dec"
         >
-          December : <span className="text-red-500">*</span>
+          December
         </label>
         <input
           type="date"
@@ -362,7 +362,7 @@ const CreateMonthlyMember = () => {
           id="dec"
           value={formData.dec}
           onChange={handleChange}
-          required
+          // required
         />
       </div>
 

@@ -11,7 +11,8 @@ const slides = [
     image: "https://i.ibb.co/5k4jBfh/11.jpg",
   },
   {
-    image: "https://i.ibb.co/yhcBJvy/Whats-App-Image-2024-06-17-at-12-15-45-297373d4.jpg",
+    image:
+      "https://i.ibb.co/yhcBJvy/Whats-App-Image-2024-06-17-at-12-15-45-297373d4.jpg",
   },
   {
     image: "https://i.ibb.co/qWCRzyv/13.jpg",
@@ -33,7 +34,9 @@ const Home = () => {
 
   const getAllCategory = async () => {
     try {
-      const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/category/getAll`);
+      const response = await axios.get(
+        `${process.env.REACT_APP_BASE_URL}/category/getAll`
+      );
       if (response?.data?.success) {
         setCategory(response.data.categorys);
       }
@@ -49,15 +52,15 @@ const Home = () => {
   return (
     <>
       <Navbar />
-   
+
       <div className="pt-[100px] w-screen">
         <Slider slides={slides} />
       </div>
       <br />
       <div className="grid">
         <p className="text-2xl uppercase text-center my-10 font-semibold lg:text-4xl lg:font-semibold">
-          {t('know_more')}{" "}
-          <span className="text-cyan-500">{t('team_name')}</span>
+          {t("know_more")}{" "}
+          <span className="text-cyan-500">{t("team_name")}</span>
         </p>
         <div className="grid lg:grid-cols-2 gap-5 max-w-7xl mx-auto ">
           <iframe
@@ -85,38 +88,41 @@ const Home = () => {
           <img
             src="https://i.ibb.co/tDYtm7Q/Whats-App-Image-2024-06-10-at-10-57-34-6754bbb9.jpg"
             alt="not found"
-            className="rounded-lg shadow-2xl shadow-red-500 object-cover lg:h-[65vh]  "
-            src="https://i.ibb.co/tDYtm7Q/Whats-App-Image-2024-06-10-at-10-57-25.jpg"
-            className="w-full lg:w-[80%] h-auto"
-            alt=""
+            className="rounded-lg shadow-2xl shadow-red-500 object-cover lg:h-[65vh]"
           />
         </div>
         <div className="text-gray-700 p-4 text-justify lg:text-xl leading-7 tracking-wide font-light">
           <h2 className="text-2xl font-semibold lg:text-4xl text-center">
-            {t('foundation_helping')}
+            {t("foundation_helping")}
           </h2>
-          <p className="pt-4 text-xl font-light">{t('mission_statement')}</p>
+          <p className="pt-4 text-xl font-light">{t("mission_statement")}</p>
         </div>
       </div>
-      <div className="my-10 max-w-7xl mx-auto">
-        <h2 className="text-center text-2xl lg:text-4xl font-semibold">
-          {t('our_culture')}
-        </h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-8">
-          {category.length ? (
-            category.map((cat) => (
-              <Link
-                key={cat._id}
-                to={`/category/${cat.slug}`}
-                className="block text-center text-lg"
-              >
-                <div className="p-4 bg-gray-200 rounded-lg shadow">
-                  <h3 className="text-xl font-semibold">{cat.name}</h3>
+      <div className="max-w-7xl mx-auto px-5 my-20">
+        <p className="text-cyan-500 uppercase mb-12 text-2xl font-semibold lg:text-4xl lg:font-semibold text-center">
+          our culture
+        </p>
+        <div className="grid gap-5 lg:grid-cols-3 md:grid-cols-2">
+          {category.length > 0 ? (
+            category.map((currElem, index) => (
+              <Link to={`/product?id=${currElem._id}`} key={index}>
+                <div
+                  className="card p-4 border shadow-xl shadow-yellow-500 flex flex-col justify-between h-full"
+                  key={currElem.id}
+                >
+                  <img
+                    src={currElem.image}
+                    alt="not found"
+                    className="rounded-lg hover:opacity-75 h-48 w-full object-cover"
+                  />
+                  <p className="text-center text-2xl lg:text-3xl font-semibold mt-4">
+                    {currElem.title}
+                  </p>
                 </div>
               </Link>
             ))
           ) : (
-            <p className="col-span-4 text-center text-xl">{t('no_category_found')}</p>
+            <p className="flex m-auto">No category found</p>
           )}
         </div>
       </div>

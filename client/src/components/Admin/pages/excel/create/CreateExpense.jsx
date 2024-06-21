@@ -11,7 +11,6 @@ const CreateExpense = () => {
     reason: "",
     amount: "",
     refrence: "",
-    name: "",
     payment: "",
     other: "",
   });
@@ -50,7 +49,6 @@ const CreateExpense = () => {
           reason: "",
           amount: "",
           refrence: "",
-          name: "",
           payment: "",
           other: "",
         });
@@ -121,7 +119,7 @@ const CreateExpense = () => {
           className="block text-gray-700 text-xl font-bold mb-2"
           htmlFor="name"
         >
-          Refrence: <span className="text-red-500">*</span>
+          Refrence Name: <span className="text-red-500">*</span>
         </label>
         <input
           type="text"
@@ -133,23 +131,7 @@ const CreateExpense = () => {
           required
         />
       </div>
-      <div className="mb-4">
-        <label
-          className="block text-gray-700 text-xl font-bold mb-2"
-          htmlFor="name"
-        >
-          Name : <span className="text-red-500">*</span>
-        </label>
-        <input
-          type="text"
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-[50px] text-2xl"
-          name="name"
-          id="name"
-          value={formData.name}
-          onChange={handleChange}
-          required
-        />
-      </div>
+
       <div className="mb-4">
         <label
           className="block text-gray-700 text-xl font-bold mb-2"

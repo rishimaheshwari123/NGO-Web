@@ -18,7 +18,7 @@ const CreateOrganizationData = () => {
       <p className="text-center text-2xl font-bold border-b-2 pb-1 mb-10 uppercase">
         Storing all the information{" "}
       </p>
-      <div className="bg-black  overflow-x-scroll md:overflow-x-hidden ">
+      <div className="bg-black  overflow-x-scroll md:overflow-x-hidden mb-10">
         <div className="flex gap-5 pl-2">
           <button
             className={`${
