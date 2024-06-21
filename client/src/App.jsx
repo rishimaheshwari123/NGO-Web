@@ -21,6 +21,7 @@ import Highlight from "./pages/HighLight";
 import { useSelector } from "react-redux";
 import Product from "./pages/Product";
 import CreateGallery from "./components/Admin/pages/CreateGallery";
+import GetVolunteer from "./components/Admin/pages/GetVolunteer";
 // import CreateCulture from "./components/Admin/pages/CreateCulture";
 // import GetAllCulture from "./components/Admin/pages/GetAllCulture";
 
@@ -57,6 +58,7 @@ const App = () => {
             <Route path="addEvent" element={<CreateEvent />} />
             <Route path="getEvents" element={<GetAllEvents />} />
             <Route path="gallery" element={<CreateGallery />} />
+            <Route path="volunteer" element={<GetVolunteer />} />
             {/* <Route path="createCulture" element={<CreateCulture />} />
             <Route path="getCulture" element={<GetAllCulture />} /> */}
             <Route

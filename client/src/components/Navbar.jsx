@@ -11,10 +11,10 @@ import { RiTwitterXFill } from "react-icons/ri";
 import { MdEmail } from "react-icons/md";
 import HeaderWhatsapp from "./HeaderWhatsapp";
 import LanguageSwitcher from "./LangaugeSwither";
-
-
+import { useTranslation } from "react-i18next";
 
 const Navbar = () => {
+  const { t } = useTranslation();
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -41,7 +41,7 @@ const Navbar = () => {
             <FaRegClock size={20} color="orange" />
             24x7, 365 days
           </div>
-        <LanguageSwitcher></LanguageSwitcher>
+          <LanguageSwitcher></LanguageSwitcher>
         </div>
 
         <div className=" flex gap-3 mt-4 sm:mt-0 text-white">
@@ -89,7 +89,7 @@ const Navbar = () => {
                 pathMatch("/") ? "text-red-600 font-bold" : "text-black"
               }`}
             >
-              Home
+              {t("home")}
             </Link>
             <Link
               to="/about"
@@ -97,7 +97,7 @@ const Navbar = () => {
                 pathMatch("/about") ? "text-red-600 font-bold" : "text-black"
               }`}
             >
-              About
+              {t("about")}
             </Link>
             <Link
               to="/gallery"
@@ -105,7 +105,7 @@ const Navbar = () => {
                 pathMatch("/gallery") ? "text-red-600 font-bold" : "text-black"
               }`}
             >
-              Gallery
+              {t("gallery")}
             </Link>
             <Link
               to="/services"
@@ -113,7 +113,7 @@ const Navbar = () => {
                 pathMatch("/services") ? "text-red-600 font-bold" : "text-black"
               }`}
             >
-              Services
+              {t("services")}
             </Link>
             <Link
               to="/events"
@@ -121,7 +121,7 @@ const Navbar = () => {
                 pathMatch("/events") ? "text-red-600 font-bold" : "text-black"
               }`}
             >
-              Events
+              {t("events")}
             </Link>
             <Link
               to="/contact"
@@ -129,7 +129,7 @@ const Navbar = () => {
                 pathMatch("/contact") ? "text-red-600 font-bold" : "text-black"
               }`}
             >
-              Contact
+              {t("contact")}
             </Link>
             <Link
               to="/highlight"
@@ -139,7 +139,7 @@ const Navbar = () => {
                   : "text-black"
               }`}
             >
-              HighLight
+              {t("highLight")}
             </Link>
             <Link
               to="/donate"
@@ -147,10 +147,9 @@ const Navbar = () => {
                 pathMatch("/donate") ? "text-red-600 font-bold" : "text-black"
               }`}
             >
-              Donate
+              {t("donate")}
             </Link>
             <HeaderWhatsapp />
-
           </div>
           <div className="md:hidden flex items-center">
             <button onClick={toggleMenu}>

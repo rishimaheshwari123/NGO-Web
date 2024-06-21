@@ -25,7 +25,23 @@ const resources = {
       "mission_desc_2": "Our efforts are aimed at combating poverty and social isolation while reigniting hope for a better future. We believe that everyone has the right to equal access to the resources and opportunities needed for a dignified life and full participation in society. Our dream is a world without starvation, hunger, or poverty, and we are dedicated to making that vision a reality.",
       "mission_title_3": "OUR GOAL",
       "mission_subTitle_3": "Concern About Our Mission",
-      "mission_desc_3": "With your participation, we aspire to uplift humanity by enhancing the well-being of all, including humans, animals, and the environment. Together, we can address imbalances in society by empowering underprivileged individuals and guiding them toward a world characterized by equality, dignity, and respect."
+      "mission_desc_3": "With your participation, we aspire to uplift humanity by enhancing the well-being of all, including humans, animals, and the environment. Together, we can address imbalances in society by empowering underprivileged individuals and guiding them toward a world characterized by equality, dignity, and respect.",
+      "Become_Volunteer": "Become Volunteer",
+      "name": "Name",
+      "phone": "Phone",
+      "address": "Address",
+      "age": "Age",
+      "remark": "remark",
+      "Become_Volunteer": "Become Volunteer",
+      "home": "Home",
+      "about": "About",
+      "gallery": "Gallery",
+      "services": "Services",
+      "events": "Events",
+      "contact": "Contact",
+      "highLight": "HighLight",
+      "donate": "Donate",
+      "OUR_GALLERY": "OUR GALLERY"
     }
   },
   hi: {
@@ -44,17 +60,32 @@ const resources = {
       "foundation_description_3": "हम बेघर लोगों को व्यापक समर्थन प्रदान करते हैं, जिसमें चिकित्सा देखभाल और शैक्षिक अवसर शामिल हैं, जबकि अनाथालयों में आवश्यक आपूर्ति और मनोरंजक गतिविधियों के माध्यम से खुशी भी लाते हैं। हमारी प्रतिबद्धता आवारा कुत्तों को बचाने और खिलाने और पर्यावरणीय स्थिरता के लिए वृक्षारोपण पहल में शामिल होने तक फैली हुई है।",
       "concern_about_our_mission": "हमारे मिशन के बारे में चिंता",
 
-            "mission_title_1": "हमारा मिशन",
-        "mission_subTitle_1": "हमारे मिशन के बारे में चिंता",
-        "mission_desc_1": "टीम पहल बरेली फाउंडेशन एक गैर-लाभकारी संगठन है जिसका उद्देश्य बुनियादी आवश्यकताओं को प्रदान करके व्यक्तियों के जीवन को बेहतर बनाना है।",
-        "mission_title_2": "हमारी दृष्टि",
-        "mission_subTitle_2": "हमारे मिशन के बारे में चिंता",
-        "mission_desc_2": "हमारे प्रयास गरीबी और सामाजिक अलगाव से लड़ने और बेहतर भविष्य के लिए आशा को पुनः प्रज्वलित करने के उद्देश्य से हैं। हमारा मानना ​​है कि हर किसी को गरिमापूर्ण जीवन जीने और समाज में पूर्ण भागीदारी के लिए आवश्यक संसाधनों और अवसरों तक समान पहुंच का अधिकार है। हमारा सपना भूख, भूखमरी या गरीबी के बिना एक दुनिया है, और हम उस दृष्टि को वास्तविकता बनाने के लिए प्रतिबद्ध हैं।",
-        "mission_title_3": "हमारा लक्ष्य",
-        "mission_subTitle_3": "हमारे मिशन के बारे में चिंता",
-        "mission_desc_3": "आपकी भागीदारी के साथ, हम सभी, जिसमें मनुष्य, पशु और पर्यावरण शामिल हैं, की भलाई को बढ़ाकर मानवता को ऊपर उठाने का लक्ष्य रखते हैं। एक साथ मिलकर, हम समाज में असमानताओं को दूर कर सकते हैं, वंचित व्यक्तियों को सशक्त बना सकते हैं और उन्हें समानता, गरिमा और सम्मान की विशेषता वाली दुनिया की ओर मार्गदर्शन कर सकते हैं।"
-    
-      
+      "mission_title_1": "हमारा मिशन",
+      "mission_subTitle_1": "हमारे मिशन के बारे में चिंता",
+      "mission_desc_1": "टीम पहल बरेली फाउंडेशन एक गैर-लाभकारी संगठन है जिसका उद्देश्य बुनियादी आवश्यकताओं को प्रदान करके व्यक्तियों के जीवन को बेहतर बनाना है।",
+      "mission_title_2": "हमारी दृष्टि",
+      "mission_subTitle_2": "हमारे मिशन के बारे में चिंता",
+      "mission_desc_2": "हमारे प्रयास गरीबी और सामाजिक अलगाव से लड़ने और बेहतर भविष्य के लिए आशा को पुनः प्रज्वलित करने के उद्देश्य से हैं। हमारा मानना ​​है कि हर किसी को गरिमापूर्ण जीवन जीने और समाज में पूर्ण भागीदारी के लिए आवश्यक संसाधनों और अवसरों तक समान पहुंच का अधिकार है। हमारा सपना भूख, भूखमरी या गरीबी के बिना एक दुनिया है, और हम उस दृष्टि को वास्तविकता बनाने के लिए प्रतिबद्ध हैं।",
+      "mission_title_3": "हमारा लक्ष्य",
+      "mission_subTitle_3": "हमारे मिशन के बारे में चिंता",
+      "mission_desc_3": "आपकी भागीदारी के साथ, हम सभी, जिसमें मनुष्य, पशु और पर्यावरण शामिल हैं, की भलाई को बढ़ाकर मानवता को ऊपर उठाने का लक्ष्य रखते हैं। एक साथ मिलकर, हम समाज में असमानताओं को दूर कर सकते हैं, वंचित व्यक्तियों को सशक्त बना सकते हैं और उन्हें समानता, गरिमा और सम्मान की विशेषता वाली दुनिया की ओर मार्गदर्शन कर सकते हैं।",
+      "Become_Volunteer": "स्वयंसेवक बनें",
+      "name": "नाम",
+      "phone": "फोन",
+      "address": "पता",
+      "age": "उम्र",
+      "remark": "टिप्पणी",
+      "Become_Volunteer": "स्वयंसेवक बनें",
+      "home": "होम",
+      "about": "हमारे बारे में",
+      "gallery": "गैलरी",
+      "services": "सेवाएं",
+      "events": "कार्यक्रम",
+      "contact": "संपर्क",
+      "highLight": "मुख्य आकर्षण",
+      "donate": "दान करें",
+      "OUR_GALLERY": "हमारी गैलरी"
+
     }
   }
 };

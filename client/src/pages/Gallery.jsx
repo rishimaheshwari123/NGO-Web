@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { services } from "../data/data";
+// import { services } from "../data/data";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import axios from "axios";
+import { useTranslation } from "react-i18next";
 
 const Gallery = () => {
+  const { t } = useTranslation();
+
   const [gallery, setGallery] = useState([]);
   const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -30,7 +33,7 @@ const Gallery = () => {
         <div className="max-w-7xl mx-auto px-5 mb-10">
           <div className="max-w-7xl mx-auto px-5 my-20">
             <p className="text-cyan-500 uppercase mb-12 text-2xl font-semibold lg:text-4xl lg:font-semibold text-center">
-              our Gallery
+              {t("OUR_GALLERY")}
             </p>
             <div className="grid gap-10 lg:grid-cols-3 md:grid-cols-2 ">
               {gallery.map((currElem) => (

@@ -27,19 +27,7 @@ const createMontlyMemberCtrl = async (req, res) => {
             !name ||
             !phone ||
             !address ||
-            !amount ||
-            !jan ||
-            !feb ||
-            !march ||
-            !april ||
-            !may ||
-            !june ||
-            !july ||
-            !aug ||
-            !sep ||
-            !oct ||
-            !nov ||
-            !dec
+            !amount
         ) {
             return res.status(400).json({
                 success: false,

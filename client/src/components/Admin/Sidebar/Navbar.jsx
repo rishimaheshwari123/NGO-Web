@@ -13,6 +13,7 @@ import { setToken, setUser } from "../../../redux/authSlice";
 import { useDispatch } from "react-redux";
 import {
   FcBullish,
+  FcBusinessman,
   FcGallery,
   FcOrgUnit,
   FcOrganization,
@@ -147,6 +148,16 @@ const Navbar = () => {
               className="text-xl mt-[3px]"
             >
               Gallery
+            </Link>
+          </li>
+          <li className="mb-2 flex gap-4 items-center">
+            <FcBusinessman size={22} />
+            <Link
+              to="/admin/volunteer"
+              onClick={closeSidebar}
+              className="text-xl mt-[3px]"
+            >
+              Volunteer
             </Link>
           </li>
           {/* <li className="mb-2 flex gap-4 items-center">

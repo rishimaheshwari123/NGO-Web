@@ -10,7 +10,6 @@ const createExpense = async (req, res) => {
             reason,
             amount,
             refrence,
-            name,
             payment,
             other
         } = req.body;
@@ -36,7 +35,6 @@ const createExpense = async (req, res) => {
             reason,
             amount,
             refrence,
-            name,
             payment,
             other
         });

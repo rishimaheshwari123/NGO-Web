@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
+import BecomeVolunteer from "../components/BecomeVolunteer";
 
 const slides = [
   {
@@ -100,7 +101,7 @@ const Home = () => {
       </div>
       <div className="max-w-7xl mx-auto px-5 my-20">
         <p className="text-cyan-500 uppercase mb-12 text-2xl font-semibold lg:text-4xl lg:font-semibold text-center">
-          our culture
+          {t("our_culture")}
         </p>
         <div className="grid gap-5 lg:grid-cols-3 md:grid-cols-2">
           {category.length > 0 ? (
@@ -125,6 +126,8 @@ const Home = () => {
             <p className="flex m-auto">No category found</p>
           )}
         </div>
+
+        <BecomeVolunteer />
       </div>
       <Footer />
     </>

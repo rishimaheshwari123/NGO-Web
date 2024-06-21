@@ -13,6 +13,7 @@ import { FcOrganization } from "react-icons/fc";
 import { FcOrgUnit } from "react-icons/fc";
 import { FcBullish } from "react-icons/fc";
 import { FcGallery } from "react-icons/fc";
+import { FcBusinessman } from "react-icons/fc";
 
 const Sidebar = () => {
   const [isCollapsed, setIsCollapsed] = useState(
@@ -55,8 +56,8 @@ const Sidebar = () => {
   return (
     <div
       ref={sidebarRef}
-      className={`fixed h-screen top-0 ${
-        isCollapsed ? "w-16" : "w-64"
+      className={`fixed h-screen top-0 overflow-y-scroll  ${
+        isCollapsed ? "w-20" : "w-64"
       } bg-black transition-all duration-300`}
     >
       <div className="flex items-center justify-between p-4">
@@ -82,7 +83,7 @@ const Sidebar = () => {
       </div>
 
       {/* Navigation links */}
-      <ul className="text-white list-none flex flex-col gap-2 p-4">
+      <ul className="text-white list-none flex flex-col gap-2 p-4 mb-14">
         {isCollapsed ? (
           <>
             {[
@@ -106,6 +107,11 @@ const Sidebar = () => {
                 to: "/admin/gallery",
                 icon: <FcGallery />,
                 label: "Gallery",
+              },
+              {
+                to: "/admin/volunteer",
+                icon: <FcBusinessman />,
+                label: "Volunteer",
               },
               // {
               //   to: "/admin/createCulture",
@@ -173,6 +179,11 @@ const Sidebar = () => {
                 icon: <FcGallery />,
                 label: "Gallery",
               },
+              {
+                to: "/admin/volunteer",
+                icon: <FcBusinessman />,
+                label: "Volunteer",
+              },
               // {
               //   to: "/admin/createCulture",
               //   icon: <FcLandscape />,
@@ -218,7 +229,7 @@ const Sidebar = () => {
       </ul>
 
       {/* User and logout section */}
-      <div className="absolute bottom-2 left-2 right-2  overflow-hidden">
+      <div className="absolute -bottom-32 left-2 right-2  overflow-hidden mt-10">
         <div
           className={`flex items-center justify-center w-full ${
             isCollapsed
