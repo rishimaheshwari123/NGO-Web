@@ -22,8 +22,7 @@ const createEventListCtrl = async (req, res) => {
             !year ||
             !name ||
             !bhojan ||
-            !phone ||
-            !other
+            !phone
         ) {
             return res.status(400).json({
                 success: false,

@@ -83,7 +83,7 @@ const Home = () => {
           <img
             src="https://i.ibb.co/tDYtm7Q/Whats-App-Image-2024-06-10-at-10-57-34-6754bbb9.jpg"
             alt="not found"
-            className="rounded-lg shadow-2xl shadow-red-500 object-cover lg:h-[65vh]  lg:-rotate-6"
+            className="rounded-lg shadow-2xl shadow-red-500 object-cover lg:h-[65vh]  "
           />
         </div>
         <div>

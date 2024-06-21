@@ -32,9 +32,9 @@ const createEmployee = async (req, res) => {
             !dob ||
             !address ||
             !joinDate ||
-            !sevaAshram ||
-            !help ||
-            !active ||
+            // !sevaAshram ||
+            // !help ||
+            // !active ||
             !work
 
         ) {

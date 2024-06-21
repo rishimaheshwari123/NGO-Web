@@ -22,8 +22,7 @@ const createExpense = async (req, res) => {
             !reason ||
             !amount ||
             !refrence ||
-            !payment ||
-            !other
+            !payment
         ) {
             return res.status(400).json({
                 success: false,

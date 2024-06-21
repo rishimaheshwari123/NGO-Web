@@ -19,7 +19,7 @@ const Donet = () => {
         </div>
         <div>
           <img
-            className="flex m-auto mb-12 px-5  w-[30vw] h-[60vh]"
+            className="flex m-auto mb-12 px-5  lg:w-[30vw] lg:h-[60vh]"
             src="https://i.ibb.co/FsBHrmq/DOC-20240314-WA0021-page-0001.jpg"
             alt="not found"
           />
@@ -35,12 +35,12 @@ const Donet = () => {
           If you want to pay through upi
         </p>
 
-        <div className="flex justify-center gap-5 font-bold text-xl text-green-600 ">
+        <div className="flex justify-center gap-5 font-bold text-xl lg:text-3xl text-green-600 ">
           <span>Phone Pay</span>
           <span>Google Pay</span>
           <span>Paytm</span>
         </div>
-        <p className="text-center my-5 text-xl">9424502080</p>
+        <p className="text-center my-5 text-xl lg:text-3xl">9424502080</p>
       </div>
       <br />
       <br />

@@ -1,10 +1,22 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaBars, FaHome, FaTimes } from "react-icons/fa";
-import { MdAddBox, MdLogout, MdWidgets } from "react-icons/md";
+import {
+  MdAddBox,
+  MdEmojiEvents,
+  MdLogout,
+  MdOutlineFestival,
+  MdWidgets,
+} from "react-icons/md";
 import { useLocation } from "react-router-dom";
 import { setToken, setUser } from "../../../redux/authSlice";
 import { useDispatch } from "react-redux";
+import {
+  FcBullish,
+  FcGallery,
+  FcOrgUnit,
+  FcOrganization,
+} from "react-icons/fc";
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -98,7 +110,7 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="mb-2 flex gap-4 items-center">
-            <FaHome size={22} />
+            <FcBullish size={22} />
             <Link
               to="/admin/dashboard"
               onClick={closeSidebar}
@@ -108,7 +120,7 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="mb-2 flex gap-4 items-center">
-            <MdAddBox size={22} />
+            <MdEmojiEvents size={22} />
             <Link
               to="/admin/addEvent"
               onClick={closeSidebar}
@@ -118,13 +130,23 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="mb-2 flex gap-4 items-center">
-            <MdWidgets size={22} />
+            <MdOutlineFestival size={22} />
             <Link
               to="/admin/getEvents"
               onClick={closeSidebar}
               className="text-xl mt-[3px]"
             >
               Get Events
+            </Link>
+          </li>
+          <li className="mb-2 flex gap-4 items-center">
+            <FcGallery size={22} />
+            <Link
+              to="/admin/gallery"
+              onClick={closeSidebar}
+              className="text-xl mt-[3px]"
+            >
+              Gallery
             </Link>
           </li>
           {/* <li className="mb-2 flex gap-4 items-center">
@@ -148,7 +170,7 @@ const Navbar = () => {
             </Link>
           </li> */}
           <li className="mb-2 flex gap-4 items-center">
-            <MdAddBox size={22} />
+            <FcOrganization size={22} />
             <Link
               to="/admin/createOrganizationData"
               onClick={closeSidebar}
@@ -158,7 +180,7 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="mb-2 flex gap-4 items-center">
-            <MdAddBox size={22} />
+            <FcOrgUnit size={22} />
             <Link
               to="/admin/getOrganizationData"
               onClick={closeSidebar}

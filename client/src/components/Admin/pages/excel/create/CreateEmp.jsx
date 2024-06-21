@@ -302,7 +302,7 @@ const CreateEmp = () => {
             className="block text-gray-700 text-xl font-bold mb-2"
             htmlFor="sevaAshram"
           >
-            Seva Ashram: <span className="text-red-500">*</span>
+            Seva Ashram:
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-[50px] text-2xl"
@@ -311,7 +311,7 @@ const CreateEmp = () => {
             name="sevaAshram"
             value={formData.sevaAshram}
             onChange={handleChange}
-            required
+            // required
           />
         </div>
         <div className="mb-4">
@@ -319,7 +319,7 @@ const CreateEmp = () => {
             className="block text-gray-700 text-xl font-bold mb-2"
             htmlFor="help"
           >
-            Help: <span className="text-red-500">*</span>
+            Help:
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-[50px] text-2xl"
@@ -328,7 +328,7 @@ const CreateEmp = () => {
             name="help"
             value={formData.help}
             onChange={handleChange}
-            required
+            // required
           />
         </div>
         <div className="mb-4">
@@ -336,7 +336,7 @@ const CreateEmp = () => {
             className="block text-gray-700 text-xl font-bold mb-2"
             htmlFor="active"
           >
-            Active: <span className="text-red-500">*</span>
+            Active:
           </label>
           <select
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-[50px] text-2xl"
@@ -344,7 +344,7 @@ const CreateEmp = () => {
             name="active"
             value={formData.active}
             onChange={handleChange}
-            required
+            // required
           >
             <option value="">Select</option>
             <option value="YES">Yes</option>

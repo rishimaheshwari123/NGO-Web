@@ -45,15 +45,15 @@ const employeeSchema = new mongoose.Schema({
     },
     sevaAshram: {
         type: String,
-        required: true
+        // required: true
     },
     help: {
         type: String,
-        required: true
+        // required: true
     },
     active: {
         type: String,
-        required: true
+        // required: true
     },
     refrenceName: {
         type: String,

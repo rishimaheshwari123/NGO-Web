@@ -20,6 +20,7 @@ import Donet from "./pages/Donet";
 import Highlight from "./pages/HighLight";
 import { useSelector } from "react-redux";
 import Product from "./pages/Product";
+import CreateGallery from "./components/Admin/pages/CreateGallery";
 // import CreateCulture from "./components/Admin/pages/CreateCulture";
 // import GetAllCulture from "./components/Admin/pages/GetAllCulture";
 
@@ -55,6 +56,7 @@ const App = () => {
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="addEvent" element={<CreateEvent />} />
             <Route path="getEvents" element={<GetAllEvents />} />
+            <Route path="gallery" element={<CreateGallery />} />
             {/* <Route path="createCulture" element={<CreateCulture />} />
             <Route path="getCulture" element={<GetAllCulture />} /> */}
             <Route

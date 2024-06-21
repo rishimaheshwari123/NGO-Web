@@ -1,9 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { services } from "../data/data";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import axios from "axios";
 
 const Gallery = () => {
+  const [gallery, setGallery] = useState([]);
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
+
+  const getGallery = async () => {
+    try {
+      const response = await axios.get(`${BASE_URL}/gallery/get`);
+
+      if (response?.data?.success) {
+        setGallery(response.data.gallerys);
+      }
+    } catch (error) {
+      console.log("Something went wrong");
+    }
+  };
+
+  useEffect(() => {
+    getGallery();
+  }, []);
   return (
     <>
       <Navbar />
@@ -14,13 +33,13 @@ const Gallery = () => {
               our Gallery
             </p>
             <div className="grid gap-10 lg:grid-cols-3 md:grid-cols-2 ">
-              {services.map((currElem) => (
+              {gallery.map((currElem) => (
                 <div
                   className="card p-4 border shadow-xl shadow-red-500 "
-                  key={currElem.id}
+                  key={currElem._id}
                 >
                   <img
-                    src={currElem.img}
+                    src={currElem.image}
                     alt="not found"
                     className="rounded-lg hover:opacity-75"
                   />

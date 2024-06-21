@@ -23,7 +23,6 @@ const eventListSchema = new mongoose.Schema({
     },
     other: {
         type: String,
-        required: true
     },
 
 })

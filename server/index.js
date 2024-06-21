@@ -40,6 +40,7 @@ app.use("/api/v1/culture", require("./routes/clutureRoute"))
 app.use("/api/v1/expense", require("./routes/ExpenseRoute"))
 app.use("/api/v1/member", require("./routes/monthlyMember"))
 app.use("/api/v1/category", require("./routes/categoryRoute"))
+app.use("/api/v1/gallery", require("./routes/galleryRoute"))
 
 
 app.use("/", (req, res) => {

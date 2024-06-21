@@ -176,7 +176,7 @@ const CreateExpense = () => {
           className="block text-gray-700 text-xl font-bold mb-2"
           htmlFor="name"
         >
-          Other : <span className="text-red-500">*</span>
+          Other
         </label>
         <input
           type="text"
@@ -185,7 +185,7 @@ const CreateExpense = () => {
           id="other"
           value={formData.other}
           onChange={handleChange}
-          required
+          // required
         />
       </div>
 

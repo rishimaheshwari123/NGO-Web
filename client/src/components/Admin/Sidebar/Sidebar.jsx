@@ -12,6 +12,7 @@ import { MdOutlineFestival } from "react-icons/md";
 import { FcOrganization } from "react-icons/fc";
 import { FcOrgUnit } from "react-icons/fc";
 import { FcBullish } from "react-icons/fc";
+import { FcGallery } from "react-icons/fc";
 
 const Sidebar = () => {
   const [isCollapsed, setIsCollapsed] = useState(
@@ -101,6 +102,11 @@ const Sidebar = () => {
                 icon: <MdOutlineFestival />,
                 label: "Get Events",
               },
+              {
+                to: "/admin/gallery",
+                icon: <FcGallery />,
+                label: "Gallery",
+              },
               // {
               //   to: "/admin/createCulture",
               //   icon: <FcLandscape />,
@@ -161,6 +167,11 @@ const Sidebar = () => {
                 to: "/admin/getEvents",
                 icon: <MdOutlineFestival />,
                 label: "Get Events",
+              },
+              {
+                to: "/admin/gallery",
+                icon: <FcGallery />,
+                label: "Gallery",
               },
               // {
               //   to: "/admin/createCulture",
