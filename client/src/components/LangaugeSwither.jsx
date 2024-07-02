@@ -14,7 +14,7 @@ function LanguageSwitcher() {
       <select
         onChange={changeLanguage}
         value={i18n.language}
-        className="rounded-lg"
+        className="rounded-lg lg:h-7 lg:w-24 mt-[1px]"
       >
         <option value="en" className=" text-black">
           English

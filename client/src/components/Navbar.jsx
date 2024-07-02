@@ -41,28 +41,47 @@ const Navbar = () => {
             <FaRegClock size={20} color="orange" />
             24x7, 365 days
           </div>
-          <LanguageSwitcher></LanguageSwitcher>
         </div>
 
-        <div className=" flex gap-3 mt-4 sm:mt-0 text-white">
-          <Link to="https://www.facebook.com/teampahal.bareli1" target="_blank">
-            <FaFacebook size={25} className="hover:text-yellow-400" />
-          </Link>
-          <Link
-            to="https://www.instagram.com/team_pahal_bareli"
-            target="_blank"
-          >
-            <FaInstagram size={25} className="hover:text-yellow-400" />
-          </Link>
-          <Link
-            to="https://www.youtube.com/watch?v=fxdFW3w3UZA"
-            target="_blank"
-          >
-            <FaYoutube size={25} className="hover:text-yellow-400" />
-          </Link>
-          <Link to="https://x.com/TeamPahal" target="_blank">
-            <RiTwitterXFill size={25} className="hover:text-yellow-400" />
-          </Link>
+        <div className="flex text-white mt-2 items-center ">
+          <div className="flex  items-center gap-5">
+            <div>
+              <LanguageSwitcher></LanguageSwitcher>
+            </div>
+            <Link
+              to="/donate"
+              className={` bg-green-600 px-4 text-white  w-fit rounded-lg block lg:hidden ${
+                pathMatch("/donate") ? "text-red-600 font-bold" : "text-black"
+              }`}
+              onClick={toggleMenu}
+            >
+              Donate
+            </Link>
+          </div>
+
+          <div className="flex gap-3  ml-2">
+            <Link
+              to="https://www.facebook.com/teampahal.bareli1"
+              target="_blank"
+            >
+              <FaFacebook size={25} className="hover:text-yellow-400" />
+            </Link>
+            <Link
+              to="https://www.instagram.com/team_pahal_bareli"
+              target="_blank"
+            >
+              <FaInstagram size={25} className="hover:text-yellow-400" />
+            </Link>
+            <Link
+              to="https://www.youtube.com/watch?v=fxdFW3w3UZA"
+              target="_blank"
+            >
+              <FaYoutube size={25} className="hover:text-yellow-400" />
+            </Link>
+            <Link to="https://x.com/TeamPahal" target="_blank">
+              <RiTwitterXFill size={25} className="hover:text-yellow-400" />
+            </Link>
+          </div>
         </div>
       </div>
       <nav className="bg-white text-black  w-full z-10 text-sm">
