@@ -20,7 +20,7 @@ const Donet = () => {
         <div>
           <img
             className="flex m-auto mb-12 px-5  lg:w-[30vw] lg:h-[60vh]"
-            src="https://i.ibb.co/FsBHrmq/DOC-20240314-WA0021-page-0001.jpg"
+            src="https://i.ibb.co/7VdkgYF/Whats-App-Image-2024-08-18-at-08-26-02-e2ead38a.jpg"
             alt="not found"
           />
         </div>
